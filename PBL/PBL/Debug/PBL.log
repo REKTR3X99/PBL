@@ -1,0 +1,4 @@
+﻿  main.c
+f:\code\pbl_college\pbl\pbl\main.c(9): warning C4013: 'malloc' undefined; assuming extern returning int
+f:\code\pbl_college\pbl\pbl\main.c(20): warning C4013: 'system' undefined; assuming extern returning int
+  PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe

@@ -7,9 +7,16 @@
 #define ELECTRON_ENERGY 1.6E-19
 
 
-double Energy(double Velocity, double PlateDistance)
-{
-	return Velocity / PlateDistance;
-}
+double Energy_Electron;
+double Force_Electron;
+double Acceleration_Electron;
 
+
+void BasicCalculations(double Velocity, double PlateDistance)
+{
+	Energy_Electron = Velocity / PlateDistance;
+	Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron;
+	Acceleration_Electron = Force_Electron / ELECTRON_MASS;
+
+}
 
