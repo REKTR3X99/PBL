@@ -1,7 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <conio.h>
-#include <math.h>
+
 
 
 #define ELECTRON_MASS 9.109E-31
@@ -28,7 +28,7 @@ double Displacement_Electron;
 	{
 		//Note : Add a time function to get the velocity over time
 		Velocity_Electron = InitialVelocity_Electron + (Acceleration_Electron * Time_SecondsFromEpoch);
-		Displacement_Electron = (InitialVelocity_Electron * Time_SecondsFromEpoch) + (0.5f*Acceleration_Electron * powf(Time_SecondsFromEpoch, 2));
+		Displacement_Electron = (InitialVelocity_Electron * Time_SecondsFromEpoch) + (0.5f*Acceleration_Electron * (Time_SecondsFromEpoch*Time_SecondsFromEpoch));
 
 	}
 
