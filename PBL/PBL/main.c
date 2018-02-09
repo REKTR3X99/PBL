@@ -2,23 +2,32 @@
 #include <conio.h>
 #include "BasicCalc.h"
 
-#pragma warning (disable :4996)
+#pragma warning (disable :4996) //disabling warning for safe function declarations
 
 int main()
 {
-	double *Velocity = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
+	double *PotentialDifference = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
 	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
-
+	long int *Time_Seconds = (long int *)malloc(sizeof(long int)); //allocating memory for Time
 	//Displaying message to user
-	printf("\nEnter the Velocity of the electron and the plate distance");
-	scanf("%lf",Velocity);
-	scanf("%lf",PlateDistance);
 
-	//passing values of velocity and platedistance
-	BasicCalculations(*Velocity, *PlateDistance);
+	/*
+	Note : Potential Difference is calculated in Volts and the distance in meters
+	*/
+	printf("\nEnter the Potential Difference between the plates and the plate distance");
+	scanf("%lf",PotentialDifference); // In volts 
+	scanf("%lf",PlateDistance); // In meters
+
+	Basic_Calculations(*PotentialDifference, *PlateDistance);//passing values of velocity and platedistance
 	
+
+
+	printf("\nEnter the time you want to simulate for");
+	scanf("%lf", Time_Seconds);
+
+
 	//Freeing Allocating memory
-	free(Velocity);
+	free(PotentialDifference);
 	free(PlateDistance);
 
 

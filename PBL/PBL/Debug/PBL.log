@@ -1,4 +1,6 @@
 ﻿  main.c
 f:\code\pbl_college\pbl\pbl\main.c(9): warning C4013: 'malloc' undefined; assuming extern returning int
-f:\code\pbl_college\pbl\pbl\main.c(20): warning C4013: 'system' undefined; assuming extern returning int
+f:\code\pbl_college\pbl\pbl\main.c(27): warning C4013: 'free' undefined; assuming extern returning int
+f:\code\pbl_college\pbl\pbl\main.c(31): warning C4013: 'system' undefined; assuming extern returning int
+f:\code\pbl_college\pbl\pbl\main.c(25): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'long *'
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe
