@@ -8,7 +8,7 @@ int main()
 {
 	double *PotentialDifference = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
 	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
-	long int *Time_Seconds = (long int *)malloc(sizeof(long int)); //allocating memory for Time
+	unsigned long int *Time_Seconds = (unsigned long int *)malloc(sizeof(unsigned long int)); //allocating memory for Time
 	//Displaying message to user
 
 	/*
@@ -30,6 +30,7 @@ int main()
 	free(PotentialDifference);
 	free(PlateDistance);
 
+	Velocity_Disp_Calc(10.0f, Time_Seconds);
 
 	system("pause");
 
