@@ -10,7 +10,7 @@
 
 
 double Energy_Electron = 0.0f;
-double Force_Electron = 0.0f;
+double Force_Electron;// = 0.0f;
 double Acceleration_Electron = 0.0f;
 double Velocity_Electron = 0.0f;
 double Displacement_Electron = 0.0f; 
@@ -28,10 +28,13 @@ const double ElectronPlateWidth_L = 0.5f;
 	void Basic_Calculations(double PotentialDifference, double PlateDistance)
 	{
 		Energy_Electron = PotentialDifference / PlateDistance; //Energy of the electron
-		Force_Electron = -1*ELECTRON_ENERGY * Energy_Electron; //Force of the electorn on plate B ( The plate form which the electron enters into the field)
+		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force of the electorn on plate B ( The plate form which the electron enters into the field)
 		Acceleration_Electron = Force_Electron / ELECTRON_MASS; //Acceleration of the electron: negating by -1 to get a positive result for acceleration
 
-		printf("\n%lf\n%lf\n%lf", Energy_Electron, Force_Electron, Acceleration_Electron);
+		printf("\n%g", Energy_Electron);
+		printf("\n%g", Force_Electron);
+		printf("\n%g", Acceleration_Electron);
+
 	}
 
 	void Velocity_Disp_Calc(double InitialVelocity_Electron, unsigned long int Time_SecondsFromEpoch)
@@ -50,7 +53,7 @@ const double ElectronPlateWidth_L = 0.5f;
 
 	void TimeDependedCalcs(unsigned long int Time_SecondsFromEpoch)
 	{
-		DistanceTravelled_Electron = (abs(Force_Electron) / (2 * ELECTRON_MASS)) * pow(Time_SecondsFromEpoch, 2);
+		DistanceTravelled_Electron = -1*(Force_Electron) / (2 * ELECTRON_MASS) * pow(Time_SecondsFromEpoch, 2);
 	}
 
 
@@ -62,9 +65,9 @@ const double ElectronPlateWidth_L = 0.5f;
 		VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L/pow(InitialVelocity_Electron,2));
 	
 
-		printf("\nHorizontal Disp : %lf", HorizontalDisplacement_X_ElectricField_Perpendicular);
-		printf("\nVertical Disp : %lf", VerticalDisplacement_Y_ElectricField_Perpendicular);
-		printf("\nVertical Displacement Leaving : %lf", VerticalDisplacement_LeavingElectricField);
-		printf("\nTime : ", Time_Epoch);
+		printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
+		printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
+		printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
+		printf("\nTime : %d", Time_Epoch);
 		
 	}

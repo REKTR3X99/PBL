@@ -5,7 +5,8 @@
 
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
-void Caller(float, unsigned int);
+void Caller(float, unsigned long int);
+
 int main()
 {
 	double *PotentialDifference = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
@@ -26,14 +27,14 @@ int main()
 
 
 	printf("\nEnter the time you want to simulate for");
-	scanf("%lf", Time_Seconds);
+	scanf("%ld", Time_Seconds);
 
 
 	//Freeing Allocating memory
 	free(PotentialDifference);
 	free(PlateDistance);
 
-	Velocity_Disp_Calc(10.0f, Time_Seconds);
+	Velocity_Disp_Calc(10.0, Time_Seconds);
 
 
 	printf("\nEnter the step size");
@@ -48,7 +49,7 @@ int main()
 
 }
 
-void Caller(float StepSize, unsigned int Time_Seconds)
+void Caller(float StepSize, unsigned long int Time_Seconds)
 {
 	int count = 0;
 	while (count <= Time_Seconds)
