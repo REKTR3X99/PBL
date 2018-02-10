@@ -2,10 +2,11 @@
 #include <conio.h>
 #include "BasicCalc.h"
 #include <Windows.h>
+ 
 
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
-void Caller(float, unsigned long int);
+void Perpendicular_ElectricField(float, unsigned long int);
 
 int main()
 {
@@ -13,45 +14,59 @@ int main()
 	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
 	unsigned long int *Time_Seconds = (unsigned long int *)malloc(sizeof(unsigned long int)); //allocating memory for Time
 	float *StepSize = (float *)malloc(sizeof(float)); //assinging memory for Step Size
+	double *InitialVelocity = (double *)malloc(sizeof(double));
 	//Displaying message to user
 
 	/*
-	Note : Potential Difference is calculated in Volts and the distance in meters
-	*/
-	printf("\nEnter the Potential Difference between the plates and the plate distance");
-	scanf("%lf",PotentialDifference); // In volts 
-	scanf("%lf",PlateDistance); // In meters
-
-	Basic_Calculations(*PotentialDifference, *PlateDistance);//passing values of velocity and platedistance
+	Note 1: Units : 
+	Potential Difference : Volts 
+	Plate Distance : Meters 
+	Initial Velocity : Meters/second
+	Time : Seconds 
 	
 
+	Note 2 : Step Size is the update interval between the calculations.
+	*/
+	printf("\nEnter the Potential Difference between the plates");
+	scanf("%lf",PotentialDifference); // In volts 
+
+	printf("\nEnter the distance between the plate distance");
+	scanf("%lf",PlateDistance); // In meters
+	
+	printf("\nEnter the Initial Velocity of the electron");
+	scanf("%lf", InitialVelocity);
 
 	printf("\nEnter the time you want to simulate for");
 	scanf("%ld", Time_Seconds);
+
+	printf("\nEnter the step size");
+	scanf("%f", StepSize);
+
+	//Function calls for basic math
+	Basic_Calculations(*PotentialDifference, *PlateDistance);//passing values of velocity and platedistance
+	Velocity_Disp_Calc(*InitialVelocity, *Time_Seconds);
 
 
 	//Freeing Allocating memory
 	free(PotentialDifference);
 	free(PlateDistance);
+	free(InitialVelocity);
 
-	Velocity_Disp_Calc(10.0, Time_Seconds);
+	
 
-
-	printf("\nEnter the step size");
-	scanf("%f", StepSize);
-
-	Caller(*StepSize, Time_Seconds);
+	Perpendicular_ElectricField(*StepSize, *Time_Seconds);
 
 	free(StepSize);
 
-
+	
 	system("pause");
 
 }
 
-void Caller(float StepSize, unsigned long int Time_Seconds)
+void Perpendicular_ElectricField(float StepSize, unsigned long int Time_Seconds)
 {
-	int count = 0;
+	unsigned int count = 0;
+	
 	while (count <= Time_Seconds)
 	{
 		ElectronMovement_Perpendicular(Velocity_Electron, count);

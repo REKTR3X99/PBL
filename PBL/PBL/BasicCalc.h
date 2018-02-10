@@ -1,7 +1,9 @@
 #pragma once
 #include <stdio.h>
 #include <conio.h>
-#include <math.h>
+#include <math.h> 
+#include <Windows.h>
+
 
 
 #define ELECTRON_MASS 9.109E-31
@@ -15,6 +17,8 @@ double Acceleration_Electron = 0.0f;
 double Velocity_Electron = 0.0f;
 double Displacement_Electron = 0.0f; 
 double DistanceTravelled_Electron = 0.0f;
+int Time_Epoch = 0;
+
 
 #pragma region Perpendicular Electric Field
 double VerticalDisplacement_Y_ElectricField_Perpendicular;
@@ -36,14 +40,16 @@ const double ElectronPlateWidth_L = 0.5f;
 		printf("\n%g", Acceleration_Electron);
 
 	}
+#pragma endregion
 
+#pragma region Parallel Electric Field
 	void Velocity_Disp_Calc(double InitialVelocity_Electron, unsigned long int Time_SecondsFromEpoch)
 	{
 		//Note : Add a time function to get the velocity over time
 		Velocity_Electron = InitialVelocity_Electron + (Acceleration_Electron * Time_SecondsFromEpoch);
 		Displacement_Electron = (InitialVelocity_Electron * Time_SecondsFromEpoch) + (0.5f*Acceleration_Electron * (Time_SecondsFromEpoch*Time_SecondsFromEpoch));
 
-		printf("\n%lf\n%lf", Velocity_Electron, Displacement_Electron);
+		printf("\n%g\n%g", Velocity_Electron, Displacement_Electron);
 	}
 
 #pragma endregion
@@ -60,14 +66,17 @@ const double ElectronPlateWidth_L = 0.5f;
 	
 	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  int Time_Epoch)
 	{
-		HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * Time_Epoch;
-		VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * Time_Epoch * Time_Epoch;
-		VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L/pow(InitialVelocity_Electron,2));
-	
+		
+			HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * Time_Epoch;
+			VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * Time_Epoch * Time_Epoch;
+			VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L / pow(InitialVelocity_Electron, 2));
 
-		printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
-		printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
-		printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
-		printf("\nTime : %d", Time_Epoch);
+			printf("\n\n");
+			printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
+			printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
+			printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
+			printf("\nTime : %d", Time_Epoch);
+
+			
 		
 	}
