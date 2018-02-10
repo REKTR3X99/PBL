@@ -1,10 +1,12 @@
 ﻿  main.c
 f:\code\pbl_college\pbl\pbl\basiccalc.h(53): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
-f:\code\pbl_college\pbl\pbl\basiccalc.h(61): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
-f:\code\pbl_college\pbl\pbl\main.c(9): warning C4013: 'malloc' undefined; assuming extern returning int
-f:\code\pbl_college\pbl\pbl\main.c(30): warning C4013: 'free' undefined; assuming extern returning int
-f:\code\pbl_college\pbl\pbl\main.c(33): warning C4047: 'function': 'unsigned long' differs in levels of indirection from 'unsigned long *'
-f:\code\pbl_college\pbl\pbl\main.c(33): warning C4024: 'Velocity_Disp_Calc': different types for formal and actual parameter 2
-f:\code\pbl_college\pbl\pbl\main.c(35): warning C4013: 'system' undefined; assuming extern returning int
-f:\code\pbl_college\pbl\pbl\main.c(26): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'unsigned long *'
+f:\code\pbl_college\pbl\pbl\basiccalc.h(68): warning C4474: 'printf' : too many arguments passed for format string
+  f:\code\pbl_college\pbl\pbl\basiccalc.h(68): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+f:\code\pbl_college\pbl\pbl\main.c(36): warning C4047: 'function': 'unsigned long' differs in levels of indirection from 'unsigned long *'
+f:\code\pbl_college\pbl\pbl\main.c(36): warning C4024: 'Velocity_Disp_Calc': different types for formal and actual parameter 2
+f:\code\pbl_college\pbl\pbl\main.c(42): warning C4047: 'function': 'unsigned int' differs in levels of indirection from 'unsigned long *'
+f:\code\pbl_college\pbl\pbl\main.c(42): warning C4024: 'Caller': different types for formal and actual parameter 2
+f:\code\pbl_college\pbl\pbl\main.c(29): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'unsigned long *'
+f:\code\pbl_college\pbl\pbl\main.c(54): warning C4018: '<=': signed/unsigned mismatch
+f:\code\pbl_college\pbl\pbl\main.c(57): warning C4244: 'function': conversion from 'float' to 'DWORD', possible loss of data
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe

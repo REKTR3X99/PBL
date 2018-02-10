@@ -55,9 +55,16 @@ const double ElectronPlateWidth_L = 0.5f;
 
 
 	
-	void ElectronMovement_Perpendicular(double InitialVelocity_Electron, unsigned int Time_Epoch)
+	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  int Time_Epoch)
 	{
 		HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * Time_Epoch;
-		VerticalDisplacement_Y_ElectricField_Perpendicular = (abs(Force_Electron) / 2 * ELECTRON_MASS) * (pow(2, Time_Epoch));
+		VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * Time_Epoch * Time_Epoch;
 		VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L/pow(InitialVelocity_Electron,2));
+	
+
+		printf("\nHorizontal Disp : %lf", HorizontalDisplacement_X_ElectricField_Perpendicular);
+		printf("\nVertical Disp : %lf", VerticalDisplacement_Y_ElectricField_Perpendicular);
+		printf("\nVertical Displacement Leaving : %lf", VerticalDisplacement_LeavingElectricField);
+		printf("\nTime : ", Time_Epoch);
+		
 	}
