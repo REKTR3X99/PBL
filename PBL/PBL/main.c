@@ -6,15 +6,15 @@
 
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
-void Perpendicular_ElectricField(float, unsigned long int);
-void Projectile_ElectricField(float, unsigned long int);
+void Perpendicular_ElectricField(float, float);
+void Projectile_ElectricField(float, float);
 
 
 int main()
 {
 	double *PotentialDifference = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
 	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
-	unsigned long int *Time_Seconds = (unsigned long int *)malloc(sizeof(unsigned long int)); //allocating memory for Time
+	float *Time_Seconds = (float *)malloc(sizeof(float)); //allocating memory for Time
 	float *StepSize = (float *)malloc(sizeof(float)); //assinging memory for Step Size
 	double *InitialVelocity = (double *)malloc(sizeof(double));
 	//Displaying message to user
@@ -39,7 +39,7 @@ int main()
 	scanf("%lf", InitialVelocity);
 
 	printf("\nEnter the time you want to simulate for");
-	scanf("%ld", Time_Seconds);
+	scanf("%f", Time_Seconds);
 
 	printf("\nEnter the step size");
 	scanf("%f", StepSize);
@@ -66,9 +66,9 @@ int main()
 
 }
 
-void Perpendicular_ElectricField(float StepSize, unsigned long int Time_Seconds)
+void Perpendicular_ElectricField(float StepSize, float Time_Seconds)
 {
-	unsigned int count = 0;
+	float count = 0;
 	
 	while (count <= Time_Seconds)
 	{
@@ -79,9 +79,9 @@ void Perpendicular_ElectricField(float StepSize, unsigned long int Time_Seconds)
 	
 }
 
-void Projectile_ElectricField(float StepSize, unsigned long int Time_Seconds)
+void Projectile_ElectricField(float StepSize, float Time_Seconds)
 {
-	unsigned int count = 0;
+	float count = 0;
 	float ProjectionAngle_Electron;
 	printf("\nEnter the projection angle");
 	scanf("%f", &ProjectionAngle_Electron);
@@ -91,6 +91,6 @@ void Projectile_ElectricField(float StepSize, unsigned long int Time_Seconds)
 	{
 		ElectronMovement_Projectile(Velocity_Electron, ProjectionAngle_Electron, count);
 		Sleep(StepSize * 1000);
-		count++;
+		count += StepSize;
 	}
 }

@@ -52,7 +52,7 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 #pragma endregion
 
 #pragma region Parallel Electric Field
-	void Velocity_Disp_Calc(double InitialVelocity_Electron, unsigned long int Time_SecondsFromEpoch)
+	void Velocity_Disp_Calc(double InitialVelocity_Electron, float Time_SecondsFromEpoch)
 	{
 		//Note : Add a time function to get the velocity over time
 		Velocity_Electron = InitialVelocity_Electron + (Acceleration_Electron * Time_SecondsFromEpoch);
@@ -71,7 +71,7 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 
 
 	
-	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  int Time_Epoch)
+	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  float Time_Epoch)
 	{
 		
 			HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * Time_Epoch;
@@ -82,10 +82,10 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 			printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
 			printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
 			printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
-			printf("\nTime : %d", Time_Epoch);
+			printf("\nTime : %f", Time_Epoch);
 	}
 
-	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,unsigned long int Time_Seconds)
+	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds)
 	{
 		HorizontalComponent_Y_ElectricField_Projection = (InitialVelocity_Electron * cos(ProjectionAngle_Electron)) * Time_Seconds;
 		VerticalCompoenet_Y_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) + (0.5 * Acceleration_Electron * pow(Time_Seconds, 2));
