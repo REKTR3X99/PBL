@@ -12,7 +12,7 @@
 
 
 double Energy_Electron = 0.0f;
-double Force_Electron;// = 0.0f;
+double Force_Electron = 0.0f;
 double Acceleration_Electron = 0.0f;
 double Velocity_Electron = 0.0f;
 double Displacement_Electron = 0.0f; 
@@ -21,20 +21,20 @@ int Time_Epoch = 0;
 
 
 #pragma region Perpendicular Electric Field
-double VerticalDisplacement_Y_ElectricField_Perpendicular;
-double HorizontalDisplacement_X_ElectricField_Perpendicular;
-double VerticalDisplacement_LeavingElectricField;
+double VerticalDisplacement_Y_ElectricField_Perpendicular = 0.0f;
+double HorizontalDisplacement_X_ElectricField_Perpendicular = 0.0f;
+double VerticalDisplacement_LeavingElectricField = 0.0f;
 const double ElectronPlateWidth_L = 0.5f;
 #pragma endregion
 
 
 #pragma region Electron Prjected at an angle Electric Field
-double HorizontalComponent_Y_ElectricField_Projection;
-double VerticalCompoenet_Y_ElectricField_Projection;
-double MaxVerticalDisplacement_Y_ElectricField_Projection;
-double TimeTakenForMaxVerticalDisplacement_ElectricField_Projection;
-double TimeOfFlightOfElectron_ElectricField_Projection;
-double RangeOfElectron_ElectricField_Projection;
+double HorizontalComponent_Y_ElectricField_Projection = 0.0f;
+double VerticalCompoenet_Y_ElectricField_Projection = 0.0f;
+double MaxVerticalDisplacement_Y_ElectricField_Projection = 0.0f;
+double TimeTakenForMaxVerticalDisplacement_ElectricField_Projection = 0.0f;
+double TimeOfFlightOfElectron_ElectricField_Projection = 0.0f;
+double RangeOfElectron_ElectricField_Projection = 0.0f;
 #pragma endregion
 
 #pragma region Basic Calculations
@@ -64,8 +64,6 @@ double RangeOfElectron_ElectricField_Projection;
 #pragma endregion
 
 
-
-
 	void TimeDependedCalcs(unsigned long int Time_SecondsFromEpoch)
 	{
 		DistanceTravelled_Electron = -1*(Force_Electron) / (2 * ELECTRON_MASS) * pow(Time_SecondsFromEpoch, 2);
@@ -90,7 +88,7 @@ double RangeOfElectron_ElectricField_Projection;
 	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,unsigned long int Time_Seconds)
 	{
 		HorizontalComponent_Y_ElectricField_Projection = (InitialVelocity_Electron * cos(ProjectionAngle_Electron)) * Time_Seconds;
-		VerticalCompoenet_Y_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) * (0.5 * Acceleration_Electron * pow(Time_Seconds, 2));
+		VerticalCompoenet_Y_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) + (0.5 * Acceleration_Electron * pow(Time_Seconds, 2));
 
 		MaxVerticalDisplacement_Y_ElectricField_Projection = ((pow(InitialVelocity_Electron, 2)) * (pow(sin(ProjectionAngle_Electron), 2))) / 2 * Acceleration_Electron;
 		TimeTakenForMaxVerticalDisplacement_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) / Acceleration_Electron;
@@ -99,6 +97,9 @@ double RangeOfElectron_ElectricField_Projection;
 		TimeOfFlightOfElectron_ElectricField_Projection = 2 * TimeTakenForMaxVerticalDisplacement_ElectricField_Projection;
 		RangeOfElectron_ElectricField_Projection = (2 * sin(ProjectionAngle_Electron) * cos(ProjectionAngle_Electron) * pow(InitialVelocity_Electron, 2) ) / Acceleration_Electron;
 	
+		
+
+
 		printf("\n\n");
 		printf("\n%g\n%g", HorizontalComponent_Y_ElectricField_Projection, VerticalCompoenet_Y_ElectricField_Projection);
 	
