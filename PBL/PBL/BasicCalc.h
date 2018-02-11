@@ -28,12 +28,21 @@ const double ElectronPlateWidth_L = 0.5f;
 #pragma endregion
 
 
+#pragma region Electron Prjected at an angle Electric Field
+double HorizontalComponent_Y_ElectricField_Projection;
+double VerticalCompoenet_Y_ElectricField_Projection;
+double MaxVerticalDisplacement_Y_ElectricField_Projection;
+double TimeTakenForMaxVerticalDisplacement_ElectricField_Projection;
+double TimeOfFlightOfElectron_ElectricField_Projection;
+double RangeOfElectron_ElectricField_Projection;
+#pragma endregion
+
 #pragma region Basic Calculations
 	void Basic_Calculations(double PotentialDifference, double PlateDistance)
 	{
 		Energy_Electron = PotentialDifference / PlateDistance; //Energy of the electron
 		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force of the electorn on plate B ( The plate form which the electron enters into the field)
-		Acceleration_Electron = Force_Electron / ELECTRON_MASS; //Acceleration of the electron: negating by -1 to get a positive result for acceleration
+		Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS; //Acceleration of the electron: negating by -1 to get a positive result for acceleration
 
 		printf("\n%g", Energy_Electron);
 		printf("\n%g", Force_Electron);
@@ -76,7 +85,21 @@ const double ElectronPlateWidth_L = 0.5f;
 			printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
 			printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
 			printf("\nTime : %d", Time_Epoch);
+	}
 
-			
+	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,unsigned long int Time_Seconds)
+	{
+		HorizontalComponent_Y_ElectricField_Projection = (InitialVelocity_Electron * cos(ProjectionAngle_Electron)) * Time_Seconds;
+		VerticalCompoenet_Y_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) * (0.5 * Acceleration_Electron * pow(Time_Seconds, 2));
+
+		MaxVerticalDisplacement_Y_ElectricField_Projection = ((pow(InitialVelocity_Electron, 2)) * (pow(sin(ProjectionAngle_Electron), 2))) / 2 * Acceleration_Electron;
+		TimeTakenForMaxVerticalDisplacement_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) / Acceleration_Electron;
+
 		
+		TimeOfFlightOfElectron_ElectricField_Projection = 2 * TimeTakenForMaxVerticalDisplacement_ElectricField_Projection;
+		RangeOfElectron_ElectricField_Projection = (2 * sin(ProjectionAngle_Electron) * cos(ProjectionAngle_Electron) * pow(InitialVelocity_Electron, 2) ) / Acceleration_Electron;
+	
+		printf("\n\n");
+		printf("\n%g\n%g", HorizontalComponent_Y_ElectricField_Projection, VerticalCompoenet_Y_ElectricField_Projection);
+	
 	}
