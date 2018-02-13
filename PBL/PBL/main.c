@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <conio.h>
+#include <stdlib.h>
 #include "BasicCalc.h"
 #include <Windows.h>
- 
+
 
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
@@ -10,8 +11,11 @@ void Perpendicular_ElectricField(float, float);
 void Projectile_ElectricField(float, float);
 
 
-int main()
+
+int main(void)
 {
+
+
 	double *PotentialDifference = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
 	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
 	float *Time_Seconds = (float *)malloc(sizeof(float)); //allocating memory for Time
@@ -52,12 +56,12 @@ int main()
 	//Freeing Allocating memory
 	free(PotentialDifference);
 	free(PlateDistance);
-	free(InitialVelocity);
+	//free(InitialVelocity);
 
 	
 
-	//Perpendicular_ElectricField(*StepSize, *Time_Seconds);
-	Projectile_ElectricField(*StepSize, *Time_Seconds);
+	//Perpendicular_ElectricField(*StepSize, *Time_Seconds,*InitialVelocity);
+	Projectile_ElectricField(*StepSize, *Time_Seconds,*InitialVelocity);
 
 	free(StepSize);
 
@@ -66,22 +70,22 @@ int main()
 
 }
 
-void Perpendicular_ElectricField(float StepSize, float Time_Seconds)
+void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double InitialVelocity)
 {
 	float count = 0;
 	
 	while (count <= Time_Seconds)
 	{
 		ElectronMovement_Perpendicular(Velocity_Electron, count);
-		Sleep(StepSize * 1000);
-		count++;
+		//Sleep(StepSize * 1000); //for real-time simulation
+		count+=StepSize;
 	}
 	
 }
 
-void Projectile_ElectricField(float StepSize, float Time_Seconds)
+void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity)
 {
-	float count = 0;
+	float count = 1;
 	float ProjectionAngle_Electron;
 	printf("\nEnter the projection angle");
 	scanf("%f", &ProjectionAngle_Electron);
@@ -89,8 +93,8 @@ void Projectile_ElectricField(float StepSize, float Time_Seconds)
 
 	while (count <= Time_Seconds)
 	{
-		ElectronMovement_Projectile(Velocity_Electron, ProjectionAngle_Electron, count);
-		Sleep(StepSize * 1000);
+		ElectronMovement_Projectile(InitialVelocity, ProjectionAngle_Electron, count);
+		//Sleep(StepSize * 1000); //for realtime simulation
 		count += StepSize;
 	}
 }
