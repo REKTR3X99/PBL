@@ -7,8 +7,8 @@
 
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
-void Perpendicular_ElectricField(float, float);
-void Projectile_ElectricField(float, float);
+void Perpendicular_ElectricField(float, float, double);
+void Projectile_ElectricField(float, float, double);
 
 
 
@@ -72,7 +72,7 @@ int main(void)
 
 void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double InitialVelocity)
 {
-	float count = 0;
+	float count = 0.0f;
 	
 	while (count <= Time_Seconds)
 	{
@@ -85,7 +85,7 @@ void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double Initi
 
 void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity)
 {
-	float count = 1;
+	static float count = 1.5;
 	float ProjectionAngle_Electron;
 	printf("\nEnter the projection angle");
 	scanf("%f", &ProjectionAngle_Electron);
