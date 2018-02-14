@@ -76,7 +76,7 @@ void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double Initi
 	
 	while (count <= Time_Seconds)
 	{
-		ElectronMovement_Perpendicular(Velocity_Electron, count);
+		ElectronMovement_Perpendicular(InitialVelocity, count);
 		//Sleep(StepSize * 1000); //for real-time simulation
 		count+=StepSize;
 	}
