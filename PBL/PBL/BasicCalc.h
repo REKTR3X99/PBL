@@ -17,7 +17,6 @@ double Acceleration_Electron = 0.0f;
 double Velocity_Electron_TMAX = 0.0f;
 double Displacement_Electron = 0.0f; 
 double DistanceTravelled_Electron = 0.0f;
-int Time_Epoch = 0;
 
 
 #pragma region Perpendicular Electric Field

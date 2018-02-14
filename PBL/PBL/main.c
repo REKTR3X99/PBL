@@ -20,19 +20,19 @@ int main(void)
 	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
 	float *Time_Seconds = (float *)malloc(sizeof(float)); //allocating memory for Time
 	float *StepSize = (float *)malloc(sizeof(float)); //assinging memory for Step Size
-	double *InitialVelocity = (double *)malloc(sizeof(double));
-	//Displaying message to user
+	double *InitialVelocity = (double *)malloc(sizeof(double)); //allocating memory for InitialVelocity
+	int choice;
 
 	/*
-	Note 1: Units : 
-	Potential Difference : Volts 
-	Plate Distance : Meters 
-	Initial Velocity : Meters/second
-	Time : Seconds 
+	Note 1: All the units should be in their standard units
 	
 
 	Note 2 : Step Size is the update interval between the calculations.
 	*/
+
+	printf("\nEnter the values in their standard units");
+
+
 	printf("\nEnter the Potential Difference between the plates");
 	scanf("%lf",PotentialDifference); // In volts 
 
@@ -56,15 +56,29 @@ int main(void)
 	//Freeing Allocating memory
 	free(PotentialDifference);
 	free(PlateDistance);
-	//free(InitialVelocity);
 
+
+	printf("\n1: Perpendicular Field\n2: Projectile Electric Field");
+	scanf("%d", &choice);
+
+
+	switch (choice)
+	{
+	case 1 : 
+		Perpendicular_ElectricField(*StepSize, *Time_Seconds,*InitialVelocity);
+		break;
+
+	case 2 : 
+		Projectile_ElectricField(*StepSize, *Time_Seconds, *InitialVelocity);
+		break;
+
+	default : 
+		return  EXIT_FAILURE;
+		break;
+	}
 	
-
-	//Perpendicular_ElectricField(*StepSize, *Time_Seconds,*InitialVelocity);
-	Projectile_ElectricField(*StepSize, *Time_Seconds,*InitialVelocity);
-
-	free(StepSize);
-
+	free(StepSize); 
+	free(InitialVelocity);
 	
 	system("pause");
 
@@ -85,7 +99,7 @@ void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double Initi
 
 void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity)
 {
-	static float count = 1.5;
+	static float count = 0.0f;
 	float ProjectionAngle_Electron;
 	printf("\nEnter the projection angle");
 	scanf("%f", &ProjectionAngle_Electron);
