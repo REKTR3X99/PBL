@@ -1,4 +1,9 @@
 ﻿  main.c
+main.c(47): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'double **'
+main.c(50): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'double **'
+main.c(53): warning C4477: 'scanf' : format string '%lf' requires an argument of type 'double *', but variadic argument 1 has type 'double **'
+main.c(56): warning C4477: 'scanf' : format string '%f' requires an argument of type 'float *', but variadic argument 1 has type 'float **'
+main.c(59): warning C4477: 'scanf' : format string '%f' requires an argument of type 'float *', but variadic argument 1 has type 'float **'
   Generating code
   7 of 13 functions (53.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation

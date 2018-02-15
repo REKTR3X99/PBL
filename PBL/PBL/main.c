@@ -11,16 +11,34 @@ void Perpendicular_ElectricField(float, float, double);
 void Projectile_ElectricField(float, float, double);
 
 
+struct Variables
+{
+	double *PotentialDifference;
+	double *PlateDistance;
+	float  *Time_Seconds;
+	float  *StepSize;
+	double *InitialVelocity;
 
-int main(void)
+};
+int main(void0)
 {
 
+	/* Backup in case the structure doesn't work
+	double *PotentialDifference   = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
+    double *PlateDistance		  = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
+    float  *Time_Seconds		  = (float *)malloc(sizeof(float)); //allocating memory for Time
+    float  *StepSize			  = (float *)malloc(sizeof(float)); //assinging memory for Step Size
+    double *InitialVelocity		  = (double *)malloc(sizeof(double)); //allocating memory for InitialVelocity
+	
+	*/
+	struct Variables *RequiredVariables  = (struct Variables *)malloc(sizeof(struct Variables));
 
-	double *PotentialDifference = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
-	double *PlateDistance = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
-	float *Time_Seconds = (float *)malloc(sizeof(float)); //allocating memory for Time
-	float *StepSize = (float *)malloc(sizeof(float)); //assinging memory for Step Size
-	double *InitialVelocity = (double *)malloc(sizeof(double)); //allocating memory for InitialVelocity
+	RequiredVariables->InitialVelocity   = (double *)malloc(sizeof(double));
+	RequiredVariables->PlateDistance     = (double *)malloc(sizeof(double));
+	RequiredVariables->InitialVelocity   = (double *)malloc(sizeof(double));
+	RequiredVariables->Time_Seconds      = (float *)malloc(sizeof(float));
+	RequiredVariables->StepSize			 = (float *)malloc(sizeof(float));
+
 	int choice;
 
 	/*
@@ -34,28 +52,28 @@ int main(void)
 
 
 	printf("\nEnter the Potential Difference between the plates");
-	scanf("%lf",PotentialDifference); // In volts 
+	scanf("%lf", &RequiredVariables->PotentialDifference); // In volts 
 
 	printf("\nEnter the distance between the plate distance");
-	scanf("%lf",PlateDistance); // In meters
+	scanf("%lf",&RequiredVariables->PlateDistance); // In meters
 	
 	printf("\nEnter the Initial Velocity of the electron");
-	scanf("%lf", InitialVelocity);
+	scanf("%lf", &RequiredVariables->InitialVelocity);
 
 	printf("\nEnter the time you want to simulate for");
-	scanf("%f", Time_Seconds);
+	scanf("%f",&RequiredVariables->Time_Seconds);
 
 	printf("\nEnter the step size");
-	scanf("%f", StepSize);
+	scanf("%f", &RequiredVariables->StepSize);
 
 	//Function calls for basic math
-	Basic_Calculations(*PotentialDifference, *PlateDistance);//passing values of velocity and platedistance
-	Velocity_Disp_Calc(*InitialVelocity, *Time_Seconds);
+	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
+	Velocity_Disp_Calc(*RequiredVariables->InitialVelocity, *RequiredVariables->Time_Seconds);
 
 
 	//Freeing Allocating memory
-	free(PotentialDifference);
-	free(PlateDistance);
+	free(RequiredVariables->PotentialDifference);
+	free(RequiredVariables->PlateDistance);
 
 
 	printf("\n1: Perpendicular Field\n2: Projectile Electric Field");
@@ -65,11 +83,11 @@ int main(void)
 	switch (choice)
 	{
 	case 1 : 
-		Perpendicular_ElectricField(*StepSize, *Time_Seconds,*InitialVelocity);
+		Perpendicular_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds,*RequiredVariables->InitialVelocity);
 		break;
 
 	case 2 : 
-		Projectile_ElectricField(*StepSize, *Time_Seconds, *InitialVelocity);
+		Projectile_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity);
 		break;
 
 	default : 
@@ -77,8 +95,8 @@ int main(void)
 		break;
 	}
 	
-	free(StepSize); 
-	free(InitialVelocity);
+	free(RequiredVariables->StepSize); 
+	free(RequiredVariables->InitialVelocity);
 	
 	system("pause");
 
