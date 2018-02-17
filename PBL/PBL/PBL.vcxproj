@@ -95,6 +95,7 @@
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <EnablePREfast>true</EnablePREfast>
+      <AssemblerListingLocation>F:\Code\PBL_College\PBL\ASM_DebugLocation</AssemblerListingLocation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

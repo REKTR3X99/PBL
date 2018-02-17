@@ -8,17 +8,16 @@
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 void Perpendicular_ElectricField(float, float, double);
-void Projectile_ElectricField(float, float, double);
+void Projectile_ElectricField(float,float, double);
 
 
 struct Variables
 {
 	double *PotentialDifference;
 	double *PlateDistance;
+	double *InitialVelocity;
 	float  *Time_Seconds;
 	float  *StepSize;
-	double *InitialVelocity;
-
 };
 int main(void0)
 {
@@ -31,13 +30,14 @@ int main(void0)
     double *InitialVelocity		  = (double *)malloc(sizeof(double)); //allocating memory for InitialVelocity
 	
 	*/
-	struct Variables *RequiredVariables  = (struct Variables *)malloc(sizeof(struct Variables));
+	struct Variables *RequiredVariables		 = (struct Variables *)malloc(sizeof(struct Variables));
 
-	RequiredVariables->InitialVelocity   = (double *)malloc(sizeof(double));
-	RequiredVariables->PlateDistance     = (double *)malloc(sizeof(double));
-	RequiredVariables->InitialVelocity   = (double *)malloc(sizeof(double));
-	RequiredVariables->Time_Seconds      = (float *)malloc(sizeof(float));
-	RequiredVariables->StepSize			 = (float *)malloc(sizeof(float));
+	//struct Variables RequiredVariables;
+	RequiredVariables->PotentialDifference   = (double *)malloc(sizeof(double));
+	RequiredVariables->PlateDistance		 = (double *)malloc(sizeof(double));
+	RequiredVariables->InitialVelocity		 = (double *)malloc(sizeof(double));
+	RequiredVariables->Time_Seconds			 = (float *)malloc(sizeof(float));
+	RequiredVariables->StepSize				 = (float *)malloc(sizeof(float));
 
 	int choice;
 
@@ -52,19 +52,19 @@ int main(void0)
 
 
 	printf("\nEnter the Potential Difference between the plates");
-	scanf("%lf", &RequiredVariables->PotentialDifference); // In volts 
+	scanf("%lf", RequiredVariables->PotentialDifference); // In volts 
 
 	printf("\nEnter the distance between the plate distance");
-	scanf("%lf",&RequiredVariables->PlateDistance); // In meters
+	scanf("%lf",RequiredVariables->PlateDistance); // In meters
 	
 	printf("\nEnter the Initial Velocity of the electron");
-	scanf("%lf", &RequiredVariables->InitialVelocity);
+	scanf("%lf", RequiredVariables->InitialVelocity);
 
 	printf("\nEnter the time you want to simulate for");
-	scanf("%f",&RequiredVariables->Time_Seconds);
+	scanf("%f",RequiredVariables->Time_Seconds);
 
 	printf("\nEnter the step size");
-	scanf("%f", &RequiredVariables->StepSize);
+	scanf("%f", RequiredVariables->StepSize); // stupid issue of not seeing that it was using **float issue is now resolved
 
 	//Function calls for basic math
 	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
@@ -87,7 +87,7 @@ int main(void0)
 		break;
 
 	case 2 : 
-		Projectile_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity);
+		Projectile_ElectricField(*RequiredVariables->StepSize,*RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity);
 		break;
 
 	default : 
@@ -105,20 +105,21 @@ int main(void0)
 void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double InitialVelocity)
 {
 	float count = 0.0f;
-	
+	printf("\nPerpendicular");
 	while (count <= Time_Seconds)
 	{
 		ElectronMovement_Perpendicular(InitialVelocity, count);
 		//Sleep(StepSize * 1000); //for real-time simulation
-		count+=StepSize;
+		//count+=StepSize;
 	}
 	
 }
 
-void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity)
+void Projectile_ElectricField(float StepSize,float Time_Seconds, double InitialVelocity)
 {
-	static float count = 0.0f;
+	float count = 0.0f;
 	float ProjectionAngle_Electron;
+	
 	printf("\nEnter the projection angle");
 	scanf("%f", &ProjectionAngle_Electron);
 
