@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
-#include "BasicCalc.h"
 #include <Windows.h>
 
-
+#include "BasicCalc.h"
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 void Perpendicular_ElectricField(float, float, double);
@@ -18,10 +17,11 @@ struct Variables
 	double *InitialVelocity;
 	float  *Time_Seconds;
 	float  *StepSize;
+	
 };
-int main(void0)
+int main()
 {
-
+	
 	/* Backup in case the structure doesn't work
 	double *PotentialDifference   = (double *)malloc(sizeof(double)); //allocating memory for velocity variable
     double *PlateDistance		  = (double *)malloc(sizeof(double)); //allocating memory for PlateDistance
@@ -64,7 +64,7 @@ int main(void0)
 	scanf("%f",RequiredVariables->Time_Seconds);
 
 	printf("\nEnter the step size");
-	scanf("%f", RequiredVariables->StepSize); // stupid issue of not seeing that it was using **float issue is now resolved
+	scanf("%f", RequiredVariables->StepSize); // stupid issue of not seeing that it was using **float has been resolved
 
 	//Function calls for basic math
 	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
@@ -82,11 +82,14 @@ int main(void0)
 
 	switch (choice)
 	{
-	case 1 : 
+	case 1 :
+		Parallel_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds);
+		break;
+	case 2 : 
 		Perpendicular_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds,*RequiredVariables->InitialVelocity);
 		break;
 
-	case 2 : 
+	case 3 : 
 		Projectile_ElectricField(*RequiredVariables->StepSize,*RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity);
 		break;
 
@@ -105,12 +108,11 @@ int main(void0)
 void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double InitialVelocity)
 {
 	float count = 0.0f;
-	printf("\nPerpendicular");
 	while (count <= Time_Seconds)
 	{
 		ElectronMovement_Perpendicular(InitialVelocity, count);
 		//Sleep(StepSize * 1000); //for real-time simulation
-		//count+=StepSize;
+		count+=StepSize;
 	}
 	
 }
@@ -118,16 +120,29 @@ void Perpendicular_ElectricField(float StepSize, float Time_Seconds,double Initi
 void Projectile_ElectricField(float StepSize,float Time_Seconds, double InitialVelocity)
 {
 	float count = 0.0f;
-	float ProjectionAngle_Electron;
+	float *ProjectionAngle = (float *)malloc(sizeof(float));
 	
 	printf("\nEnter the projection angle");
-	scanf("%f", &ProjectionAngle_Electron);
+	scanf("%f", ProjectionAngle);
 
 
 	while (count <= Time_Seconds)
 	{
-		ElectronMovement_Projectile(InitialVelocity, ProjectionAngle_Electron, count);
+		ElectronMovement_Projectile(InitialVelocity, *ProjectionAngle, count);
 		//Sleep(StepSize * 1000); //for realtime simulation
+		count += StepSize;
+	}
+
+	free(ProjectionAngle);
+}
+
+void Parallel_ElectricField(float StepSize,float Time_Seconds)
+{
+	float count = 0.0f;
+
+	while (count <= Time_Seconds)
+	{
+		ElectronMovement_Parallel(count);
 		count += StepSize;
 	}
 }

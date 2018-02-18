@@ -14,9 +14,9 @@
 double Energy_Electron = 0.0f; 
 double Force_Electron = 0.0f;
 double Acceleration_Electron = 0.0f;
-double Velocity_Electron_TMAX = 0.0f;
-double Displacement_Electron = 0.0f; 
-double DistanceTravelled_Electron = 0.0f;
+
+
+double Horizontal_X_Component = 0.0f;
 
 
 #pragma region Perpendicular Electric Field
@@ -50,22 +50,12 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 	}
 #pragma endregion
 
-#pragma region Parallel Electric Field
-	void Velocity_Disp_Calc(double InitialVelocity_Electron, float Time_SecondsFromEpoch)
+
+
+	void ElectronMovement_Parallel(unsigned long int Time_SecondsFromEpoch)
 	{
-		//Note : Add a time function to get the velocity over time
-		Velocity_Electron_TMAX = InitialVelocity_Electron + (Acceleration_Electron * Time_SecondsFromEpoch);
-		Displacement_Electron = (InitialVelocity_Electron * Time_SecondsFromEpoch) + (0.5f*Acceleration_Electron * (Time_SecondsFromEpoch*Time_SecondsFromEpoch));
-
-		printf("\n%g\n%g", Velocity_Electron_TMAX, Displacement_Electron);
-	}
-
-#pragma endregion
-
-
-	void TimeDependedCalcs(unsigned long int Time_SecondsFromEpoch)
-	{
-		DistanceTravelled_Electron = -1*(Force_Electron) / (2 * ELECTRON_MASS) * pow(Time_SecondsFromEpoch, 2);
+		Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(Time_SecondsFromEpoch, 2);
+		printf("\nX = %g", Horizontal_X_Component);
 	}
 
 
@@ -77,11 +67,11 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 			VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * Time_Epoch * Time_Epoch;
 			VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L / pow(InitialVelocity_Electron, 2));
 
-			//printf("\n\n");
-			//printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
-			//printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
-			//printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
-			//printf("\nTime : %f", Time_Epoch);
+			printf("\n\n");
+			printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
+			printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
+			printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
+			printf("\nTime : %f", Time_Epoch);
 	}
 
 	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds)
@@ -108,10 +98,5 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 		//
 		//TimeOfFlightOfElectron_ElectricField_Projection = 2 * TimeTakenForMaxVerticalDisplacement_ElectricField_Projection;
 		//RangeOfElectron_ElectricField_Projection = (2 * sin(ProjectionAngle_Electron) * cos(ProjectionAngle_Electron) * pow(InitialVelocity_Electron, 2) ) / Acceleration_Electron;
-	
-		
-
-
-		
 	
 	}
