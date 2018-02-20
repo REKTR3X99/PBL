@@ -4,7 +4,7 @@ Note : Since SIGLIB only works with x86 platforms, compiling the code with x64 c
 
 Although, I've configured for X64 it might not work.
 
-API used : SIGIL - http://www.libsigil.com/
+Library used : SIGIL - http://www.libsigil.com/
 
 
 
