@@ -8,7 +8,7 @@
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 void Perpendicular_ElectricField(float, float, double);
 void Projectile_ElectricField(float,float, double);
-
+void Parallel_ElectricField(float, float);
 
 struct Variables
 {
@@ -19,7 +19,9 @@ struct Variables
 	float  *StepSize;
 	
 };
-int main()
+
+
+int main(int argc,char* argv[])
 {
 	
 	/* Backup in case the structure doesn't work
@@ -41,6 +43,7 @@ int main()
 
 	int choice;
 
+#pragma region Input Section
 	/*
 	Note 1: All the units should be in their standard units
 	
@@ -65,10 +68,12 @@ int main()
 
 	printf("\nEnter the step size");
 	scanf("%f", RequiredVariables->StepSize); // stupid issue of not seeing that it was using **float has been resolved
+#pragma endregion
+
 
 	//Function calls for basic math
 	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
-	Velocity_Disp_Calc(*RequiredVariables->InitialVelocity, *RequiredVariables->Time_Seconds);
+	//Velocity_Disp_Calc(*RequiredVariables->InitialVelocity, *RequiredVariables->Time_Seconds);
 
 
 	//Freeing Allocating memory

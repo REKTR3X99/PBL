@@ -52,7 +52,7 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 
 
 
-	void ElectronMovement_Parallel(unsigned long int Time_SecondsFromEpoch)
+	void ElectronMovement_Parallel(float Time_SecondsFromEpoch)
 	{
 		Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(Time_SecondsFromEpoch, 2);
 		printf("\nX = %g", Horizontal_X_Component);
