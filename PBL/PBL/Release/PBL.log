@@ -1,7 +1,2 @@
-﻿  main.c
-  Generating code
-  1 of 14 functions ( 7.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  PBL.vcxproj -> F:\Code\PBL_College\PBL\Release\PBL.exe
+﻿main.obj : error LNK2001: unresolved external symbol _slWindow
+F:\Code\PBL_College\PBL\Release\PBL.exe : fatal error LNK1120: 1 unresolved externals

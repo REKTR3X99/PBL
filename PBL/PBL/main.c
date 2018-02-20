@@ -2,8 +2,9 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <Windows.h>
-
+#include "SIGIL\include\sl.h"
 #include "BasicCalc.h"
+#include <process.h>
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 void Perpendicular_ElectricField(float, float, double);
@@ -23,6 +24,9 @@ struct Variables
 
 int main(int argc,char* argv[])
 {
+
+	slWindow(500, 500, "Hello", 0);
+	
 	
 	/* Backup in case the structure doesn't work
 	double *PotentialDifference   = (double *)malloc(sizeof(double)); //allocating memory for velocity variable

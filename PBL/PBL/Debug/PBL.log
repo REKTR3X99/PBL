@@ -1,6 +1,2 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\main.c(59): warning C4047: 'function': 'unsigned long' differs in levels of indirection from 'unsigned long *'
-f:\code\pbl_college\pbl\pbl\main.c(59): warning C4024: 'Caller': different types for formal and actual parameter 2
-f:\code\pbl_college\pbl\pbl\main.c(71): warning C4018: '<=': signed/unsigned mismatch
-f:\code\pbl_college\pbl\pbl\main.c(74): warning C4244: 'function': conversion from 'float' to 'DWORD', possible loss of data
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe

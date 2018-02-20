@@ -1,0 +1,4 @@
+﻿main.obj : error LNK2019: unresolved external symbol slWindow referenced in function main
+main.obj : error LNK2019: unresolved external symbol slTriangleFill referenced in function main
+F:\Code\PBL_College\PBL\PBL\SIGIL\lib\sigil.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+F:\Code\PBL_College\PBL\x64\Debug\PBL.exe : fatal error LNK1120: 2 unresolved externals
