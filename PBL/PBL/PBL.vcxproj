@@ -77,7 +77,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>F:\Code\PBL_College\PBL\PBL\SIGIL\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <LibraryPath>F:\Code\PBL_College\PBL\PBL\SIGIL\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -87,7 +87,7 @@
       <AdditionalIncludeDirectories>F:\Code\PBL_College\PBL\PBL\SIGIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>F:\Code\PBL_College\PBL\PBL\SIGIL\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>F:\Code\PBL_College\PBL\PBL\SIGIL\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sigil.lib;</AdditionalDependencies>
     </Link>
     <ProjectReference>
@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BasicCalc.h" />
+    <ClInclude Include="Plotter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />

@@ -9,12 +9,9 @@
 #define ELECTRON_MASS 9.109E-31
 #define ELECTRON_ENERGY 1.6E-19
 
-
-
 double Energy_Electron = 0.0f; 
 double Force_Electron = 0.0f;
 double Acceleration_Electron = 0.0f;
-
 
 double Horizontal_X_Component = 0.0f;
 

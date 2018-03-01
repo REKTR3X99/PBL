@@ -1,12 +1,15 @@
-#include <stdio.h>
-#include <conio.h>
+//#include <stdio.h>
+//#include <conio.h>
 #include <stdlib.h>
 #include <Windows.h>
 #include "SIGIL\include\sl.h"
 #include "BasicCalc.h"
 #include <process.h>
 
+
+
 #pragma warning (disable :4996) //disabling warning for safe function declarations
+
 void Perpendicular_ElectricField(float, float, double);
 void Projectile_ElectricField(float,float, double);
 void Parallel_ElectricField(float, float);
@@ -21,11 +24,36 @@ struct Variables
 	
 };
 
+typedef struct ArgumentList
+{
+	int WindowWidth; 
+	int WindowHeight;
+	char Title;
+	int FullScreen; 
+} *PMyData, MyData;
 
 int main(int argc,char* argv[])
 {
+	DWORD ThreadID;
+	PMyData ArgumentList;
+	ArgumentList = (PMyData)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(MyData)); // Allocating Data for argument List;
 
-	slWindow(500, 500, "Hello", 0);
+	ArgumentList->WindowWidth = 500;
+	ArgumentList->WindowHeight = 500;
+	ArgumentList->Title = 'P';
+	ArgumentList->FullScreen = 0;
+	
+	
+	
+	
+	//HANDLE thread_Handle = CreateThread(
+	//	NULL,  //Will use Default Security Attributes;
+	//	0,		//Use Default Stack Size
+	//	slWindow,	//SlWindow to reneder the GUI
+	//	ArgumentList,//Passing Argument list as a structure
+	//	0,	//default creation flags
+	//	&ThreadID	//Thread ID for identifying
+	//);
 	
 	
 	/* Backup in case the structure doesn't work
@@ -42,8 +70,8 @@ int main(int argc,char* argv[])
 	RequiredVariables->PotentialDifference   = (double *)malloc(sizeof(double));
 	RequiredVariables->PlateDistance		 = (double *)malloc(sizeof(double));
 	RequiredVariables->InitialVelocity		 = (double *)malloc(sizeof(double));
-	RequiredVariables->Time_Seconds			 = (float *)malloc(sizeof(float));
-	RequiredVariables->StepSize				 = (float *)malloc(sizeof(float));
+	RequiredVariables->Time_Seconds			 = (float  *)malloc(sizeof(float ));
+	RequiredVariables->StepSize				 = (float  *)malloc(sizeof(float ));
 
 	int choice;
 
@@ -111,6 +139,8 @@ int main(int argc,char* argv[])
 	free(RequiredVariables->InitialVelocity);
 	
 	system("pause");
+	//exit(0);
+	
 
 }
 

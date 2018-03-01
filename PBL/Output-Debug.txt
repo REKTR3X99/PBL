@@ -1,0 +1,121 @@
+﻿'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\Debug\PBL.exe'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\sigil.dll'. Module was built without symbols.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\opengl32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\user32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcrt.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\win32u.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\OpenAL32.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\advapi32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\glew32.dll'. Module was built without symbols.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\gdi32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\sechost.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\rpcrt4.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\gdi32full.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp_win.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\sspicli.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\cryptbase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmm.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\shell32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\bcryptprimitives.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\cfgmgr32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\SHCore.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmmbase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmmbase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winmmbase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\winmmbase.dll'
+'PBL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\winmmbase.dll'
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\combase.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\glu32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\windows.storage.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\shlwapi.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\powrprof.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\profapi.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\imm32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\uxtheme.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\dinput8.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\XInput1_4.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\devobj.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\dwmapi.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\InputHost.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\CoreMessaging.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\CoreUIComponents.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntmarta.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\WinTypes.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\WinTypes.dll'. Symbols loaded.
+'PBL.exe' (Win32): Unloaded 'C:\Windows\SysWOW64\WinTypes.dll'
+'PBL.exe' (Win32): Loaded 'C:\Program Files (x86)\RivaTuner Statistics Server\RTSSHooks.dll'. Module was built without symbols.
+'PBL.exe' (Win32): Unloaded 'C:\Program Files (x86)\RivaTuner Statistics Server\RTSSHooks.dll'
+'PBL.exe' (Win32): Loaded 'C:\Program Files (x86)\RivaTuner Statistics Server\RTSSHooks.dll'. Module was built without symbols.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\hid.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\setupapi.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\wintrust.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msasn1.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\crypt32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msctf.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\oleaut32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_7a39871618b19f06\nvoglv32.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Unloaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_7a39871618b19f06\nvoglv32.dll'
+'PBL.exe' (Win32): Loaded 'C:\Windows\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_7a39871618b19f06\nvoglv32.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ole32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\wtsapi32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\version.dll'. Symbols loaded.
+The thread 0x3348 has exited with code 0 (0x0).
+The thread 0xd48 has exited with code 0 (0x0).
+The thread 0x57c has exited with code 0 (0x0).
+The thread 0x1138 has exited with code 0 (0x0).
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\nvspcap.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\winsta.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\TextInputFramework.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\MMDevAPI.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\propsys.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\wdmaud.drv'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\avrt.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ksuser.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\AudioSes.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msacm32.drv'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msacm32.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\midimap.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Unloaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\dsound.dll'. Symbols loaded.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\clbcatq.dll'. Symbols loaded.
+onecore\com\combase\objact\objact.cxx(812)\combase.dll!748B1B90: (caller: 748B093B) ReturnHr(1) tid(3318) 800401F0 CoInitialize has not been called.
+The thread 0x20dc has exited with code 0 (0x0).
+The thread 0x33a0 has exited with code 0 (0x0).
+The thread 0x30e0 has exited with code 0 (0x0).
+The thread 0x1388 has exited with code 0 (0x0).
+The thread 0x494 has exited with code 0 (0x0).
+The thread 0x1ad4 has exited with code 0 (0x0).
+'PBL.exe' (Win32): Unloaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Unloaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'
+'PBL.exe' (Win32): Loaded 'F:\Code\PBL_College\PBL\PBL\wrap_oal.dll'. Cannot find or open the PDB file.
+'PBL.exe' (Win32): Loaded 'C:\Windows\SysWOW64\Windows.UI.dll'. Symbols loaded.
+The thread 0x3318 has exited with code 72285204 (0x44efc14).
+The thread 0x12ac has exited with code 0 (0x0).
+The thread 0x11c has exited with code 0 (0x0).
+The thread 0x1d3c has exited with code 0 (0x0).
+The thread 0x2ff0 has exited with code 1 (0x1).
+The thread 0x1d0c has exited with code 1 (0x1).
+The thread 0x19b4 has exited with code 1 (0x1).
+The thread 0x1e04 has exited with code 1 (0x1).
+The thread 0xe6c has exited with code 1 (0x1).
+The thread 0x33b4 has exited with code 1 (0x1).
+The thread 0x1d14 has exited with code 1 (0x1).
+The thread 0x3114 has exited with code 1 (0x1).
+The thread 0x2784 has exited with code 1 (0x1).
+The thread 0x2db8 has exited with code 1 (0x1).
+The thread 0x1ec0 has exited with code 1 (0x1).
+The thread 0x2ddc has exited with code 1 (0x1).
+The thread 0x23a0 has exited with code 1 (0x1).
+The thread 0x121c has exited with code 1 (0x1).
+The program '[6312] PBL.exe' has exited with code 1 (0x1).
