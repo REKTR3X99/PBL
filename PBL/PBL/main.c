@@ -9,9 +9,9 @@
 
 
 
-void Parallel_ElectricField(float, float, int);
-void Projectile_ElectricField(float, float, double, float, int);
-void Perpendicular_ElectricField(float, float, double, int);
+void Parallel_ElectricField(float, float);
+void Projectile_ElectricField(float, float, double, float);
+void Perpendicular_ElectricField(float, float, double);
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 
@@ -23,7 +23,6 @@ struct Variables
 	double *InitialVelocity;
 	float  *Time_Seconds;
 	float  *StepSize;
-	int	   *MemoryAllocationFactor;
 	float  *ProjectionAngle;
 } RefVar;
 
@@ -67,7 +66,6 @@ int main(int argc,char* argv[])
 	RequiredVariables->InitialVelocity		   = (double *)malloc(sizeof(double));
 	RequiredVariables->Time_Seconds			   = (float  *)malloc(sizeof(float ));
 	RequiredVariables->StepSize				   = (float  *)malloc(sizeof(float ));
-	RequiredVariables->MemoryAllocationFactor  = (int	 *)malloc(sizeof(int   ));
 	RequiredVariables->ProjectionAngle =		 (float  *)malloc(sizeof(int   ));
 	
 	int choice;
@@ -100,10 +98,6 @@ int main(int argc,char* argv[])
 #pragma endregion
 
 
-
-	//Variable to allocate factor of memory using step size for array
-	*RequiredVariables->MemoryAllocationFactor = *RequiredVariables->Time_Seconds / *RequiredVariables->StepSize;
-
 	//Function calls for basic math
 	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
 	
@@ -116,16 +110,16 @@ int main(int argc,char* argv[])
 	switch (choice)
 	{
 	case 1 :
-		Parallel_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds,*RequiredVariables->MemoryAllocationFactor);
+		Parallel_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds);
 		break;
 	case 2 : 
-		Perpendicular_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds,*RequiredVariables->InitialVelocity,*RequiredVariables->MemoryAllocationFactor);
+		Perpendicular_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds,*RequiredVariables->InitialVelocity);
 		break;
 
 	case 3 : 
 		printf("\nEnter Projection Angle");
 		scanf("%f", RequiredVariables->ProjectionAngle);
-		Projectile_ElectricField(*RequiredVariables->StepSize,*RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity,*RequiredVariables->ProjectionAngle,*RequiredVariables->MemoryAllocationFactor);
+		Projectile_ElectricField(*RequiredVariables->StepSize,*RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity,*RequiredVariables->ProjectionAngle);
 		break;
 
 	default : 
@@ -147,20 +141,20 @@ int main(int argc,char* argv[])
 
 }
 
-void Parallel_ElectricField(float StepSize, float Time_Seconds, int MemAllocFactor)
+void Parallel_ElectricField(float StepSize, float Time_Seconds)
 {
 
-	ElectronMovement_Parallel(Time_Seconds, StepSize, MemAllocFactor);
+	ElectronMovement_Parallel(Time_Seconds, StepSize);
 }
 
-void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity,float ProjectionAngle, int MemAllocFactor)
+void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity,float ProjectionAngle)
 {
-	ElectronMovement_Projectile(InitialVelocity, ProjectionAngle, Time_Seconds, StepSize, MemAllocFactor);
+	ElectronMovement_Projectile(InitialVelocity, ProjectionAngle, Time_Seconds, StepSize);
 }
 
-void Perpendicular_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity, int MemAllocFactor)
+void Perpendicular_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity)
 {
 
-	ElectronMovement_Perpendicular(InitialVelocity, Time_Seconds, StepSize, MemAllocFactor);
+	ElectronMovement_Perpendicular(InitialVelocity, Time_Seconds, StepSize);
 
 }

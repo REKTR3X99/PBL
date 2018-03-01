@@ -1,4 +1,7 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\main.c(105): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-f:\code\pbl_college\pbl\pbl\main.c(40): warning C4101: 'ThreadID': unreferenced local variable
+f:\code\pbl_college\pbl\pbl\basiccalc.h(62): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+f:\code\pbl_college\pbl\pbl\basiccalc.h(102): warning C4018: '<=': signed/unsigned mismatch
+f:\code\pbl_college\pbl\pbl\basiccalc.h(80): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+f:\code\pbl_college\pbl\pbl\basiccalc.h(111): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+f:\code\pbl_college\pbl\pbl\main.c(39): warning C4101: 'ThreadID': unreferenced local variable
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe

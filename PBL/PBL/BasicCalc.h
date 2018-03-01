@@ -33,6 +33,13 @@ double TimeOfFlightOfElectron_ElectricField_Projection = 0.0f;
 double RangeOfElectron_ElectricField_Projection = 0.0f;
 #pragma endregion
 
+
+
+#pragma region Array Section
+
+
+#pragma endregion
+
 #pragma region Basic Calculations
 	void Basic_Calculations(double PotentialDifference, double PlateDistance)
 	{
@@ -49,9 +56,13 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 
 
 
-	void ElectronMovement_Parallel(float Time_SecondsFromEpoch,float StepSize,int MemAllocFactor)
+	void ElectronMovement_Parallel(float Time_SecondsFromEpoch,float StepSize)
 	{
 		float count = 1;
+		unsigned int  MemAllocFactor = Time_SecondsFromEpoch / StepSize;
+		
+		double *XComponentArray = (double *)calloc(MemAllocFactor, sizeof(double));
+		double *YComponentArray = (double *)calloc(MemAllocFactor, sizeof(double));
 
 		while (count <= Time_SecondsFromEpoch)
 		{
@@ -63,29 +74,44 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 
 
 	
-	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  float Time_Epoch,float StepSize,int MemAllocFactor)
+	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  float Time_Epoch,float StepSize)
 	{		
 		float count = 0;
+		unsigned int  MemAllocFactor = Time_Epoch / StepSize;
+		unsigned int i = 0;
+
+
+		double *XComponentArray = (double *)calloc(MemAllocFactor, sizeof(double));
+		double *YComponentArray = (double *)calloc(MemAllocFactor, sizeof(double));
+
 		while (count <= Time_Epoch)
 		{
 			HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * count;
 			VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(count,2);
 			VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L / pow(InitialVelocity_Electron, 2));
 			
+			
+			XComponentArray[i] = HorizontalDisplacement_X_ElectricField_Perpendicular;
+			YComponentArray[i] = VerticalDisplacement_Y_ElectricField_Perpendicular;
+			i++;
 			count += StepSize;
 		
 		}
-			//printf("\n\n");
-			//printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
-			//printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
-			//printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
-			//printf("\nTime : %f", Time_Epoch);
+		printf("Size : %d", sizeof(XComponentArray));
+
+		for (int j = 0; j <= i; j++)
+		{
+			printf("\n%g", XComponentArray[j]);
+		}
+		
 	}
 
-	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds,float StepSize,int MemAllocFactor)
+	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds,float StepSize)
 	{
-		double *XComponentArray = (double *)malloc(sizeof(double) * MemAllocFactor);
-		double *YComponentArray = (double *)malloc(sizeof(double) * MemAllocFactor);
+		unsigned int MemAllocFactor = Time_Seconds / StepSize;
+		
+		double *XComponentArray = (double *)calloc(MemAllocFactor, sizeof(double));
+		double *YComponentArray = (double *)calloc(MemAllocFactor, sizeof(double));
 		
 		double *Vx0 = (double *)malloc(sizeof(double));
 		double *Vy0 = (double *)malloc(sizeof(double));
