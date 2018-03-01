@@ -49,45 +49,67 @@ double RangeOfElectron_ElectricField_Projection = 0.0f;
 
 
 
-	void ElectronMovement_Parallel(float Time_SecondsFromEpoch)
+	void ElectronMovement_Parallel(float Time_SecondsFromEpoch,float StepSize,int MemAllocFactor)
 	{
-		Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(Time_SecondsFromEpoch, 2);
-		printf("\nX = %g", Horizontal_X_Component);
+		float count = 1;
+
+		while (count <= Time_SecondsFromEpoch)
+		{
+			Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
+			printf("\nX = %g", Horizontal_X_Component);
+			count += StepSize;
+		}
 	}
 
 
 	
-	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  float Time_Epoch)
-	{
-		
-			HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * Time_Epoch;
-			VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * Time_Epoch * Time_Epoch;
+	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  float Time_Epoch,float StepSize,int MemAllocFactor)
+	{		
+		float count = 0;
+		while (count <= Time_Epoch)
+		{
+			HorizontalDisplacement_X_ElectricField_Perpendicular = InitialVelocity_Electron * count;
+			VerticalDisplacement_Y_ElectricField_Perpendicular = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(count,2);
 			VerticalDisplacement_LeavingElectricField = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (ElectronPlateWidth_L / pow(InitialVelocity_Electron, 2));
-
-			printf("\n\n");
-			printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
-			printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
-			printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
-			printf("\nTime : %f", Time_Epoch);
+			
+			count += StepSize;
+		
+		}
+			//printf("\n\n");
+			//printf("\nHorizontal Disp : %g", HorizontalDisplacement_X_ElectricField_Perpendicular);
+			//printf("\nVertical Disp : %g", VerticalDisplacement_Y_ElectricField_Perpendicular);
+			//printf("\nVertical Displacement Leaving : %g", VerticalDisplacement_LeavingElectricField);
+			//printf("\nTime : %f", Time_Epoch);
 	}
 
-	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds)
+	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds,float StepSize,int MemAllocFactor)
 	{
+		double *XComponentArray = (double *)malloc(sizeof(double) * MemAllocFactor);
+		double *YComponentArray = (double *)malloc(sizeof(double) * MemAllocFactor);
 		
 		double *Vx0 = (double *)malloc(sizeof(double));
 		double *Vy0 = (double *)malloc(sizeof(double));
+		float count = 0;
 
 		*Vx0 = InitialVelocity_Electron * sin(ProjectionAngle_Electron);
 		*Vy0 = InitialVelocity_Electron * cos(ProjectionAngle_Electron) * Time_Seconds;
 
-		HorizontalComponent_X_ElectrincField_Projection = *Vx0 * Time_Seconds;
-		VerticalCompoenet_Y_ElectricField_Projection = *Vy0 + (0.5 * Acceleration_Electron * pow(Time_Seconds, 2));
+		while (count <= Time_Seconds)
+		{
+			HorizontalComponent_X_ElectrincField_Projection = *Vx0 * count;
+			VerticalCompoenet_Y_ElectricField_Projection = *Vy0 + (0.5 * Acceleration_Electron * pow(count, 2));
+
+			printf("\nX : %g  ", HorizontalComponent_X_ElectrincField_Projection);
+			printf("\nY : %g  ", VerticalCompoenet_Y_ElectricField_Projection);
+			count += StepSize;
+		}
+
 
 		free(Vx0);
 		free(Vy0);
 
 		printf("\n\n");
-		printf("\nHorizontal Componenet : %g\nVertical Component :  %g\nTime Since Epoch : %g", HorizontalComponent_X_ElectrincField_Projection, VerticalCompoenet_Y_ElectricField_Projection, Time_Seconds);
+		//printf("\nHorizontal Componenet : %g\nVertical Component :  %g\nTime Since Epoch : %g", HorizontalComponent_X_ElectrincField_Projection, VerticalCompoenet_Y_ElectricField_Projection, Time_Seconds);
 
 		//MaxVerticalDisplacement_Y_ElectricField_Projection = ((pow(InitialVelocity_Electron, 2)) * (pow(sin(ProjectionAngle_Electron), 2))) / 2 * Acceleration_Electron;
 		//TimeTakenForMaxVerticalDisplacement_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) / Acceleration_Electron;

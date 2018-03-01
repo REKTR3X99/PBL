@@ -1,3 +1,4 @@
-﻿  main.cpp
-f:\code\pbl_college\pbl\pbl\main.cpp(52): warning C4101: 'ThreadID': unreferenced local variable
+﻿  main.c
+f:\code\pbl_college\pbl\pbl\main.c(105): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+f:\code\pbl_college\pbl\pbl\main.c(40): warning C4101: 'ThreadID': unreferenced local variable
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe
