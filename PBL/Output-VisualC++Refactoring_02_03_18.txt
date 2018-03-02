@@ -1,0 +1,71 @@
+﻿
+Renamed 'Var' to 'Perpendicular':
+---------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(93, 17)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(100, 4)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(101, 4)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(102, 4)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(105, 25)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(106, 25)
+
+Renamed 'Perpendicular' to 'Perp':
+----------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(93, 17)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(100, 4)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(101, 4)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(102, 4)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(105, 25)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(106, 25)
+
+Renamed 'HorizontalComponent_X_ElectrincField_Projection' to 'Horizontal_X':
+----------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(38, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(151, 22)
+
+Renamed 'VerticalCompoenet_Y_ElectricField_Projection' to 'Vertical_Y':
+-----------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(39, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(152, 22)
+
+Renamed 'VerticalDisplacement_Y_ElectricField_Perpendicular' to 'VerticalDisplacement_Y':
+-----------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(28, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(116, 25)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(121, 46)
+
+Renamed 'HorizontalDisplacement_X_ElectricField_Perpendicular' to 'HorizontalDisplacement_X':
+---------------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(29, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(115, 25)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(120, 46)
+
+Renamed 'VerticalDisplacement_LeavingElectricField' to 'VerticalDisplacement_Leaving':
+--------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(30, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(117, 25)
+
+Renamed 'HorizontalComponent_X_ElectrincField_Projection' to 'HorizontalComponent_X':
+-------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(38, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(151, 22)
+
+Renamed 'VerticalCompoenet_Y_ElectricField_Projection' to 'VerticalComponent_Y':
+--------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(39, 10)
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(152, 22)
+
+Renamed 'MaxVerticalDisplacement_Y_ElectricField_Projection' to 'MaxVerticalDisplacement':
+------------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(40, 10)
+
+Renamed 'TimeTakenForMaxVerticalDisplacement_ElectricField_Projection' to 'TimeTakenForMaxVerticalDisplacement':
+----------------------------------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(41, 10)
+
+Renamed 'TimeOfFlightOfElectron_ElectricField_Projection' to 'TimeOfFlightOfElectron':
+--------------------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(42, 10)
+
+Renamed 'RangeOfElectron_ElectricField_Projection' to 'RangeOfElectron':
+------------------------------------------------------------------------
+f:\Code\PBL_College\PBL\PBL\BasicCalc.h(43, 10)

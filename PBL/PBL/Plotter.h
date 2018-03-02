@@ -1,6 +1,6 @@
 #pragma once
 
-void GenerateCoordinates(double RawCoordinates[])
+void GenerateCoordinates(void* RawCoordinates[])
 {
 
 }

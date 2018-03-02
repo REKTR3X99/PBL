@@ -9,9 +9,7 @@
 
 
 
-void Parallel_ElectricField(float, float);
-void Projectile_ElectricField(float, float, double, float);
-void Perpendicular_ElectricField(float, float, double);
+
 
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 
@@ -24,49 +22,38 @@ struct Variables
 	float  *Time_Seconds;
 	float  *StepSize;
 	float  *ProjectionAngle;
-} RefVar;
+	float  *PlateWidth;
+};
 
-typedef struct ArgumentList
-{
-	int WindowWidth; 
-	int WindowHeight;
-	char Title;
-	int FullScreen; 
-} *PMyData, MyData;
+//typedef struct ArgumentList
+//{
+//	int WindowWidth; 
+//	int WindowHeight;
+//	char Title;
+//	int FullScreen; 
+//} *PMyData, MyData;
 
 int main(int argc,char* argv[])
 {
-	DWORD ThreadID;
-	PMyData ArgumentList;
-	ArgumentList = (PMyData)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(MyData)); // Allocating Data for argument List;
-
-	ArgumentList->WindowWidth = 500;
-	ArgumentList->WindowHeight = 500;
-	ArgumentList->Title = 'P';
-	ArgumentList->FullScreen = 0;
 	
-	
-	
-	
-	//HANDLE thread_Handle = CreateThread(
-	//	NULL,  //Will use Default Security Attributes;
-	//	0,		//Use Default Stack Size
-	//	slWindow,	//SlWindow to reneder the GUI
-	//	ArgumentList,//Passing Argument list as a structure
-	//	0,	//default creation flags
-	//	&ThreadID	//Thread ID for identifying
-	//);
+	//PMyData ArgumentList;
+	//ArgumentList = (PMyData)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(MyData)); // Allocating Data for argument List;
+	//
+	//ArgumentList->WindowWidth = 500;
+	//ArgumentList->WindowHeight = 500;
+	//ArgumentList->Title = 'P';
+	//ArgumentList->FullScreen = 0;
 	
 	
 	struct Variables *RequiredVariables		 = (struct Variables *)malloc(sizeof(struct Variables));
 
-	//struct Variables RequiredVariables;
 	RequiredVariables->PotentialDifference     = (double *)malloc(sizeof(double));
 	RequiredVariables->PlateDistance		   = (double *)malloc(sizeof(double));
 	RequiredVariables->InitialVelocity		   = (double *)malloc(sizeof(double));
 	RequiredVariables->Time_Seconds			   = (float  *)malloc(sizeof(float ));
 	RequiredVariables->StepSize				   = (float  *)malloc(sizeof(float ));
-	RequiredVariables->ProjectionAngle =		 (float  *)malloc(sizeof(int   ));
+	RequiredVariables->ProjectionAngle		   = (float  *)malloc(sizeof(int   ));
+	RequiredVariables->PlateWidth			   = (float  *)malloc(sizeof(float ));
 	
 	int choice;
 
@@ -110,16 +97,19 @@ int main(int argc,char* argv[])
 	switch (choice)
 	{
 	case 1 :
-		Parallel_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds);
+		ElectronMovement_Parallel(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds);
 		break;
 	case 2 : 
-		Perpendicular_ElectricField(*RequiredVariables->StepSize, *RequiredVariables->Time_Seconds,*RequiredVariables->InitialVelocity);
+		printf("\nEnter Plate Width");
+		scanf("%f", RequiredVariables->PlateWidth);
+		ElectronMovement_Perpendicular(*RequiredVariables->InitialVelocity, *RequiredVariables->Time_Seconds,*RequiredVariables->StepSize,*RequiredVariables->PlateWidth);
 		break;
 
 	case 3 : 
 		printf("\nEnter Projection Angle");
 		scanf("%f", RequiredVariables->ProjectionAngle);
-		Projectile_ElectricField(*RequiredVariables->StepSize,*RequiredVariables->Time_Seconds, *RequiredVariables->InitialVelocity,*RequiredVariables->ProjectionAngle);
+
+		ElectronMovement_Projectile(*RequiredVariables->InitialVelocity,*RequiredVariables->ProjectionAngle, *RequiredVariables->Time_Seconds,*RequiredVariables->StepSize);
 		break;
 
 	default : 
@@ -136,25 +126,4 @@ int main(int argc,char* argv[])
 	free(RequiredVariables->PlateDistance);
 	free(RequiredVariables);
 	system("pause");
-	//exit(0);
-	
-
-}
-
-void Parallel_ElectricField(float StepSize, float Time_Seconds)
-{
-
-	ElectronMovement_Parallel(Time_Seconds, StepSize);
-}
-
-void Projectile_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity,float ProjectionAngle)
-{
-	ElectronMovement_Projectile(InitialVelocity, ProjectionAngle, Time_Seconds, StepSize);
-}
-
-void Perpendicular_ElectricField(float StepSize, float Time_Seconds, double InitialVelocity)
-{
-
-	ElectronMovement_Perpendicular(InitialVelocity, Time_Seconds, StepSize);
-
 }
