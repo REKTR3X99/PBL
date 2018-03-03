@@ -1,5 +1,3 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\basiccalc.h(78): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
-f:\code\pbl_college\pbl\pbl\basiccalc.h(104): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
-f:\code\pbl_college\pbl\pbl\basiccalc.h(131): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+f:\code\pbl_college\pbl\pbl\main.c(86): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe

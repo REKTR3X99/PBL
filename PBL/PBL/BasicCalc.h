@@ -5,7 +5,7 @@
 #include <Windows.h>
 #include "Plotter.h"
 
-
+#pragma warning (disable : 4700)
 
 #define ELECTRON_MASS 9.109E-31
 #define ELECTRON_ENERGY 1.6E-19
@@ -43,15 +43,45 @@ struct ElectricField {
 		double *Xcomponent;
 		double *Ycomponent;
 	} RequiredVaraibles;
-};
+
+	struct RVar
+	{
+		double PotentialDifference;
+		double InitialVelocity;
+		double PlateDistance;
+		float Time_Seconds;
+		float StepSize;
+	}Var;
+}EField;
 
 struct Miscelaneous
 {
 	float count;
-	unsigned int MemAllocFactor;
-	unsigned int index;
+	unsigned long int MemAllocFactor;
+	unsigned long int index;
 }Misc;
 
+void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *PlateDistance_P, float *Time_Seconds_P, float *Step_Size_P, unsigned long int *MemAllocFactor_P)
+{
+	
+	struct Miscelaneous Misc;
+
+	EField.Var.PotentialDifference = *PotentialDifference_P;
+	EField.Var.InitialVelocity = *InitialVelocity_P;
+	EField.Var.PlateDistance = *PlateDistance_P;
+	EField.Var.Time_Seconds = *Time_Seconds_P;
+	EField.Var.StepSize = *Step_Size_P;
+	Misc.MemAllocFactor = *MemAllocFactor_P;
+
+
+	//Freeing Memory after assinging it
+	free(PotentialDifference_P);
+	free(InitialVelocity_P);
+	free(PlateDistance_P);
+	free(Time_Seconds_P);
+	free(Step_Size_P);
+	free(MemAllocFactor_P);
+}
 
 #pragma region Basic Calculations
 	void Basic_Calculations(double PotentialDifference, double PlateDistance)
@@ -69,24 +99,23 @@ struct Miscelaneous
 
 
 
-	void ElectronMovement_Parallel(float Time_SecondsFromEpoch,float StepSize)
+	void ElectronMovement_Parallel()
 	{
-		struct ElectricField EField;
+		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
 
 		Misc.count = 1;
 		Misc.index = 0;
-		Misc.MemAllocFactor = round(Time_SecondsFromEpoch / StepSize);
 		
-		
+
 		EField.RequiredVaraibles.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 		
 
-		while (Misc.count <= Time_SecondsFromEpoch)
+		while (Misc.count <= 25)//EField->Var.Time_Seconds)
 		{
 			EField.Parallel.Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(Misc.count, 2);
 			*EField.RequiredVaraibles.Xcomponent = EField.Parallel.Horizontal_X_Component;
 			printf("\nX = %g", EField.Parallel.Horizontal_X_Component);
-			Misc.count += StepSize;
+			Misc.count += EField.Var.StepSize;
 		}
 
 		
@@ -94,53 +123,54 @@ struct Miscelaneous
 
 
 	
-	void ElectronMovement_Perpendicular(double InitialVelocity_Electron,  float Time_Epoch,float StepSize,float PlateWidth)
+	void ElectronMovement_Perpendicular(float PlateWidth)
 	{		
-		struct ElectricField EField;
+		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
 		
 
 		Misc.count = 0;
 		Misc.index = 0;
-		Misc.MemAllocFactor = Time_Epoch / StepSize;
 
 		EField.RequiredVaraibles.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 		EField.RequiredVaraibles.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 
-		while (Misc.count <= Time_Epoch)
+		while (Misc.count <= EField.Var.Time_Seconds)
 		{
-			EField.Perpendicular.HorizontalDisplacement_X = InitialVelocity_Electron * Misc.count;
+			EField.Perpendicular.HorizontalDisplacement_X = EField.Var.InitialVelocity * Misc.count;
 			EField.Perpendicular.VerticalDisplacement_Y = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(Misc.count,2);
-			EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(InitialVelocity_Electron, 2));
+			EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
 			
 			
 			EField.RequiredVaraibles.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
 			EField.RequiredVaraibles.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
 			Misc.index++;
-			Misc.count += StepSize;
+			Misc.count += EField.Var.StepSize;
 		
 		}
 		
 	}
 
-	void ElectronMovement_Projectile(double InitialVelocity_Electron, float ProjectionAngle_Electron,float Time_Seconds,float StepSize)
+	void ElectronMovement_Projectile(float ProjectionAngle_Electron)
 	{
-		struct ElectricField EField;
-
+		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
+		
+		
 		Misc.count = 0;
 		Misc.index = 0;
-		Misc.MemAllocFactor = Time_Seconds / StepSize;
+		
 		
 		EField.RequiredVaraibles.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 		EField.RequiredVaraibles.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 		
-		double *Vx0 = (double *)malloc(sizeof(double));
-		double *Vy0 = (double *)malloc(sizeof(double));
-		
 
-		*Vx0 = InitialVelocity_Electron * sin(ProjectionAngle_Electron);
-		*Vy0 = InitialVelocity_Electron * cos(ProjectionAngle_Electron) * Time_Seconds;
+		double *Vx0 = (double *)calloc(1, sizeof(double));
+		double *Vy0 = (double *)calloc(1, sizeof(double));
 
-		while (Misc.count <= Time_Seconds)
+
+		*Vx0 = EField.Var.InitialVelocity* sin(ProjectionAngle_Electron);
+		*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron) * EField.Var.Time_Seconds;
+
+		while (Misc.count <= EField.Var.Time_Seconds)
 		{
 			EField.Projection.HorizontalComponent_X = *Vx0 * Misc.count;
 			EField.Projection.VerticalComponent_Y = *Vy0 + (0.5 * Acceleration_Electron * pow(Misc.count, 2));
@@ -149,23 +179,12 @@ struct Miscelaneous
 			EField.RequiredVaraibles.Xcomponent[Misc.index] = EField.Projection.HorizontalComponent_X;
 			EField.RequiredVaraibles.Ycomponent[Misc.index] = EField.Projection.VerticalComponent_Y;
 			Misc.index++;
-			Misc.count += StepSize;
+			Misc.count += EField.Var.StepSize;
 		}
 
-		
-
-		//HANDLE PlotterThread = CreateThread(NULL, 0, GenerateCoordinates, XComponentArray, YComponentArray, NULL, NULL);
 		free(Vx0);
 		free(Vy0);
 
 		printf("\n\n");
-		//printf("\nHorizontal Componenet : %g\nVertical Component :  %g\nTime Since Epoch : %g", HorizontalComponent_X_ElectrincField_Projection, VerticalCompoenet_Y_ElectricField_Projection, Time_Seconds);
-
-		//MaxVerticalDisplacement_Y_ElectricField_Projection = ((pow(InitialVelocity_Electron, 2)) * (pow(sin(ProjectionAngle_Electron), 2))) / 2 * Acceleration_Electron;
-		//TimeTakenForMaxVerticalDisplacement_ElectricField_Projection = (InitialVelocity_Electron * sin(ProjectionAngle_Electron)) / Acceleration_Electron;
-		//
-		//
-		//TimeOfFlightOfElectron_ElectricField_Projection = 2 * TimeTakenForMaxVerticalDisplacement_ElectricField_Projection;
-		//RangeOfElectron_ElectricField_Projection = (2 * sin(ProjectionAngle_Electron) * cos(ProjectionAngle_Electron) * pow(InitialVelocity_Electron, 2) ) / Acceleration_Electron;
 	
 	}
