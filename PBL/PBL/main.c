@@ -31,7 +31,7 @@ unsigned long long GetAvailableMemory()
 	status.dwLength = sizeof(status);
 	GlobalMemoryStatusEx(&status);
 	//printf("\nLength : %ld", status.ullTotalPhys);
-	return status.ullTotalPhys;
+	return status.ullAvailPhys;
 }
 
 
@@ -100,14 +100,15 @@ int main(int argc,char* argv[])
 		RequiredVariables->StepSize,
 		RequiredVariables->MemAllocFactor);
 
+
 	//Function calls for basic math
 	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
 
-
+	Choice: //goto jumper label
 	printf("\n1: Parallel ElectricField\n2: Perpendicular Electric Field\n3: Projectile Electric Field");
 	scanf("%d", &choice);
 
-
+	
 	switch (choice)
 	{
 	case 1 :
@@ -127,18 +128,13 @@ int main(int argc,char* argv[])
 		break;
 
 	default : 
-		return  EXIT_FAILURE;
+		printf("\nThe value entered doesn't match with any of the option, please try again");
+		goto Choice; //Jump back to choice if the user inputs wrong values
 		break;
 	}
 
-
-
-	
-	
-	
-	
-	
-	
-	
 	system("pause");
+
+
+	return EXIT_SUCCESS;
 }
