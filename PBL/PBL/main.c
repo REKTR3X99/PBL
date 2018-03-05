@@ -1,7 +1,19 @@
+
+
+//Currently in works,  need to develop a way for thread creation in Linux
+#if (defined _WIN32 || defined _WIN64)
+
+#include <Windows.h>
+
+#elif defined __linux__
+#include <unistd.h>
+#endif
+
+
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <Windows.h>
+
 #include <process.h>
 
 #include "SIGIL\include\sl.h"
@@ -55,7 +67,7 @@ int main(int argc,char* argv[])
 #pragma region Input Section
 	/*
 	Note 1: All the units should be in their standard units
-	
+
 
 	Note 2 : Step Size is the update interval between the calculations.
 	*/
@@ -133,6 +145,8 @@ int main(int argc,char* argv[])
 		break;
 	}
 
+
+	CallThread(); // Calls assigning thread
 	system("pause");
 
 

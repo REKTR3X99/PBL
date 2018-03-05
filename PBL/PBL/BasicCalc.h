@@ -40,8 +40,8 @@ struct ElectricField {
 
 	struct Component
 	{
-		double *Xcomponent;
-		double *Ycomponent;
+		double *Xcomponent[1];
+		double *Ycomponent[1];
 	} ReqComponents;
 
 	struct RVar
@@ -52,6 +52,7 @@ struct ElectricField {
 		float Time_Seconds;
 		float StepSize;
 	}Var;
+
 }EField;
 
 struct Miscelaneous
@@ -61,10 +62,12 @@ struct Miscelaneous
 	unsigned long int index;
 }Misc;
 
+
+
 void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *PlateDistance_P, float *Time_Seconds_P, float *Step_Size_P, unsigned long int *MemAllocFactor_P)
 {
 	
-	struct Miscelaneous Misc;
+	
 
 	EField.Var.PotentialDifference = *PotentialDifference_P;
 	EField.Var.InitialVelocity = *InitialVelocity_P;
@@ -107,22 +110,28 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		Misc.index = 0;
 		
 
-		EField.ReqComponents.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+		*EField.ReqComponents.Xcomponent = realloc(*EField.ReqComponents.Xcomponent, sizeof(double) * Misc.MemAllocFactor);
 		
+		for (int i = 0; i <= Misc.MemAllocFactor; i++)
+		{
+			EField.ReqComponents.Xcomponent[i] = 0;
+		}
 
-		while (Misc.count <= 25)//EField->Var.Time_Seconds)
+		while (Misc.count <= EField.Var.Time_Seconds)//EField->Var.Time_Seconds)
 		{
 			EField.Parallel.Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(Misc.count, 2);
-			*EField.ReqComponents.Xcomponent = EField.Parallel.Horizontal_X_Component;
+			
+			*EField.ReqComponents.Xcomponent[Misc.index] = EField.Parallel.Horizontal_X_Component;
+			
 			printf("\nX = %g", EField.Parallel.Horizontal_X_Component);
 			Misc.count += EField.Var.StepSize;
+			Misc.index++;
 		}
 
 		
 	}
 
 
-	
 	void ElectronMovement_Perpendicular(float PlateWidth)
 	{		
 		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
@@ -131,8 +140,8 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		Misc.count = 0;
 		Misc.index = 0;
 
-		EField.ReqComponents.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
-		EField.ReqComponents.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+		realloc(EField.ReqComponents.Xcomponent, Misc.MemAllocFactor);
+		realloc(EField.ReqComponents.Ycomponent, Misc.MemAllocFactor);
 
 		while (Misc.count <= EField.Var.Time_Seconds)
 		{
@@ -141,8 +150,8 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
 			
 			
-			EField.ReqComponents.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
-			EField.ReqComponents.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
+			*EField.ReqComponents.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
+			*EField.ReqComponents.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
 		
@@ -159,8 +168,8 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		Misc.index = 0;
 		
 		
-		EField.ReqComponents.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
-		EField.ReqComponents.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+		realloc(EField.ReqComponents.Xcomponent, Misc.MemAllocFactor);
+		realloc(EField.ReqComponents.Ycomponent, Misc.MemAllocFactor);
 		
 
 		double *Vx0 = (double *)malloc(sizeof(double));
@@ -176,8 +185,8 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			EField.Projection.VerticalComponent_Y = *Vy0 + (0.5 * Acceleration_Electron * pow(Misc.count, 2));
 
 
-			EField.ReqComponents.Xcomponent[Misc.index] = EField.Projection.HorizontalComponent_X;
-			EField.ReqComponents.Ycomponent[Misc.index] = EField.Projection.VerticalComponent_Y;
+			*EField.ReqComponents.Xcomponent[Misc.index] = EField.Projection.HorizontalComponent_X;
+			*EField.ReqComponents.Ycomponent[Misc.index] = EField.Projection.VerticalComponent_Y;
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
 		}
@@ -188,4 +197,11 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 
 		printf("\n\n");
 	
+	}
+
+
+	void CallThread()
+	{
+		int ThreadID;
+		HANDLE Thread_Handle = CreateThread(NULL, 0, GenerateCoordinates, &EField.ReqComponents, 0, &ThreadID);
 	}
