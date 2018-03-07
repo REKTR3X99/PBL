@@ -18,7 +18,7 @@ double Acceleration_Electron = 0.0f;
 struct ElectricField {
 	struct Parallel
 	{
-		double Horizontal_X_Component;
+		double X_Component;
 	}Parallel;
 
 	struct Perpendicular {
@@ -38,19 +38,19 @@ struct ElectricField {
 		double RangeOfElectron;
 	}Projection;
 
-	struct Component
+	struct Arrays
 	{
-		double *Xcomponent[1];
-		double *Ycomponent[1];
-	} ReqComponents;
+		double *Xcomponent;
+		double *Ycomponent;
+	} CompArray;
 
-	struct RVar
+	 struct RVar
 	{
-		double PotentialDifference;
-		double InitialVelocity;
-		double PlateDistance;
-		float Time_Seconds;
-		float StepSize;
+		 double PotentialDifference;
+		 double InitialVelocity;
+		 double PlateDistance;
+		 float TimeEpoch;
+		 float StepSize;
 	}Var;
 
 }EField;
@@ -62,17 +62,12 @@ struct Miscelaneous
 	unsigned long int index;
 }Misc;
 
-
-
 void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *PlateDistance_P, float *Time_Seconds_P, float *Step_Size_P, unsigned long int *MemAllocFactor_P)
 {
-	
-	
-
 	EField.Var.PotentialDifference = *PotentialDifference_P;
 	EField.Var.InitialVelocity = *InitialVelocity_P;
 	EField.Var.PlateDistance = *PlateDistance_P;
-	EField.Var.Time_Seconds = *Time_Seconds_P;
+	EField.Var.TimeEpoch = *Time_Seconds_P;
 	EField.Var.StepSize = *Step_Size_P;
 	Misc.MemAllocFactor = *MemAllocFactor_P;
 
@@ -104,34 +99,32 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 
 	void ElectronMovement_Parallel()
 	{
-		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
+		float count = Misc.count = 0;
+		int Index = Misc.index = 0;
+		float Time = EField.Var.TimeEpoch;
+		float StepSize = EField.Var.StepSize;
+		unsigned int mem = Misc.MemAllocFactor;
 
-		Misc.count = 1;
-		Misc.index = 0;
+		
+		EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
+		printf("\nsize : %d", sizeof(EField.CompArray.Xcomponent));
 		
 
-		*EField.ReqComponents.Xcomponent = realloc(*EField.ReqComponents.Xcomponent, sizeof(double) * Misc.MemAllocFactor);
-		
-		for (int i = 0; i <= Misc.MemAllocFactor; i++)
+		while (count <= Time)
 		{
-			EField.ReqComponents.Xcomponent[i] = 0;
+			EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
+			
+			EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
+			printf("\nX Main Loop : %g", EField.Parallel.X_Component);
+			count += StepSize;
+			Index++;
 		}
 
-		while (Misc.count <= EField.Var.Time_Seconds)//EField->Var.Time_Seconds)
+		for (unsigned int i = 0; i <= Misc.MemAllocFactor - 1; i++)
 		{
-			EField.Parallel.Horizontal_X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(Misc.count, 2);
-			
-			*EField.ReqComponents.Xcomponent[Misc.index] = EField.Parallel.Horizontal_X_Component;
-			
-			printf("\nX = %g", EField.Parallel.Horizontal_X_Component);
-			Misc.count += EField.Var.StepSize;
-			Misc.index++;
-		}
-
-		
+			printf("\nX = %g", EField.CompArray.Xcomponent[i]);
+		}	
 	}
-
-
 	void ElectronMovement_Perpendicular(float PlateWidth)
 	{		
 		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
@@ -140,21 +133,23 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		Misc.count = 0;
 		Misc.index = 0;
 
-		realloc(EField.ReqComponents.Xcomponent, Misc.MemAllocFactor);
-		realloc(EField.ReqComponents.Ycomponent, Misc.MemAllocFactor);
 
-		while (Misc.count <= EField.Var.Time_Seconds)
+		EField.CompArray.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+		EField.CompArray.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+
+		while (Misc.count <= EField.Var.TimeEpoch)
 		{
 			EField.Perpendicular.HorizontalDisplacement_X = EField.Var.InitialVelocity * Misc.count;
 			EField.Perpendicular.VerticalDisplacement_Y = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(Misc.count,2);
 			EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
 			
 			
-			*EField.ReqComponents.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
-			*EField.ReqComponents.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
+			EField.CompArray.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
+			EField.CompArray.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
-		
+			
+			printf("\nRunning");
 		}
 		
 	}
@@ -167,28 +162,29 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		Misc.count = 0;
 		Misc.index = 0;
 		
-		
-		realloc(EField.ReqComponents.Xcomponent, Misc.MemAllocFactor);
-		realloc(EField.ReqComponents.Ycomponent, Misc.MemAllocFactor);
-		
+
+		EField.CompArray.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+		EField.CompArray.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 
 		double *Vx0 = (double *)malloc(sizeof(double));
 		double *Vy0 = (double *)malloc(sizeof(double));
 
 
 		*Vx0 = EField.Var.InitialVelocity* sin(ProjectionAngle_Electron);
-		*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron) * EField.Var.Time_Seconds;
+		*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron) * EField.Var.TimeEpoch;
 
-		while (Misc.count <= EField.Var.Time_Seconds)
+		while (Misc.count <= EField.Var.TimeEpoch)
 		{
 			EField.Projection.HorizontalComponent_X = *Vx0 * Misc.count;
 			EField.Projection.VerticalComponent_Y = *Vy0 + (0.5 * Acceleration_Electron * pow(Misc.count, 2));
 
 
-			*EField.ReqComponents.Xcomponent[Misc.index] = EField.Projection.HorizontalComponent_X;
-			*EField.ReqComponents.Ycomponent[Misc.index] = EField.Projection.VerticalComponent_Y;
+			EField.CompArray.Xcomponent[Misc.index] = EField.Projection.HorizontalComponent_X;
+			EField.CompArray.Ycomponent[Misc.index] = EField.Projection.VerticalComponent_Y;
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
+
+			printf("\nRunning");
 		}
 		
 		free(Vx0);
@@ -199,9 +195,10 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 	
 	}
 
-
+	
 	void CallThread()
 	{
-		int ThreadID;
-		HANDLE Thread_Handle = CreateThread(NULL, 0, GenerateCoordinates, &EField.ReqComponents, 0, &ThreadID);
+		
+		LPWORD ThreadID;
+		HANDLE Thread_Handle = CreateThread(0, NULL, GenerateCoordinates,&EField.CompArray, 0, &ThreadID);
 	}

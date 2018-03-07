@@ -1,2 +1,10 @@
-﻿main.obj : error LNK2001: unresolved external symbol _slWindow
-F:\Code\PBL_College\PBL\Release\PBL.exe : fatal error LNK1120: 1 unresolved externals
+﻿  main.c
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(203): warning C4113: 'DWORD (__stdcall *)(double **,double **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
+main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+main.obj : error LNK2001: unresolved external symbol _slClose
+main.obj : error LNK2001: unresolved external symbol _slGetKey
+main.obj : error LNK2001: unresolved external symbol _slWindow
+main.obj : error LNK2001: unresolved external symbol _slRender
+main.obj : error LNK2001: unresolved external symbol _slPoint
+main.obj : error LNK2001: unresolved external symbol _slShouldClose
+F:\Code\PBL_College\PBL\Release\PBL.exe : fatal error LNK1120: 6 unresolved externals

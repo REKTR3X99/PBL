@@ -1,4 +1,8 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\basiccalc.h(206): warning C4113: 'DWORD (__stdcall *)(double *,double *)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
-f:\code\pbl_college\pbl\pbl\main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+f:\code\pbl_college\pbl\pbl\basiccalc.h(203): warning C4047: 'function': 'SIZE_T' differs in levels of indirection from 'void *'
+f:\code\pbl_college\pbl\pbl\basiccalc.h(203): warning C4024: 'CreateThread': different types for formal and actual parameter 2
+f:\code\pbl_college\pbl\pbl\basiccalc.h(203): warning C4113: 'DWORD (__stdcall *)(LPVOID **,LPVOID **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
+f:\code\pbl_college\pbl\pbl\basiccalc.h(203): warning C4047: 'function': 'LPDWORD' differs in levels of indirection from 'LPWORD *'
+f:\code\pbl_college\pbl\pbl\basiccalc.h(203): warning C4024: 'CreateThread': different types for formal and actual parameter 6
+f:\code\pbl_college\pbl\pbl\main.c(99): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
   PBL.vcxproj -> F:\Code\PBL_College\PBL\Debug\PBL.exe

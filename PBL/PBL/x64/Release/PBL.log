@@ -1,4 +1,12 @@
 ﻿  main.c
+f:\code\pbl_college\pbl\pbl\Plotter.h(38): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+f:\code\pbl_college\pbl\pbl\Plotter.h(39): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(203): warning C4113: 'DWORD (__cdecl *)(double **,double **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
+main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+main.obj : error LNK2001: unresolved external symbol slClose
+main.obj : error LNK2001: unresolved external symbol slGetKey
 main.obj : error LNK2001: unresolved external symbol slWindow
-main.obj : error LNK2001: unresolved external symbol slTriangleFill
-F:\Code\PBL_College\PBL\x64\Release\PBL.exe : fatal error LNK1120: 2 unresolved externals
+main.obj : error LNK2001: unresolved external symbol slRender
+main.obj : error LNK2001: unresolved external symbol slPoint
+main.obj : error LNK2001: unresolved external symbol slShouldClose
+F:\Code\PBL_College\PBL\x64\Release\PBL.exe : fatal error LNK1120: 6 unresolved externals

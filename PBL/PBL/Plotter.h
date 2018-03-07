@@ -7,13 +7,13 @@
 //void Draw(double Points
 DWORD CALLBACK Draw(double PointsX[],double PointsY[])
 {
-	slWindow(500, 500, "Plot", 0);
+	slWindow(800, 600, "Plot", 0);
 	int i = 0;
 
-	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE) || i< 50)
+	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
 	{
-		slLine(PointsX[i], PointsY[i], PointsX[i + 1], PointsY[i + 1]);
-		//slPoint(PointsX[i], PointsY[i]);
+		slLine(PointsX[i], PointsY[i], PointsX[i+1], PointsY[i+1]);
+		//slPoint(PointsX[i], PointsX[i+1]);
 		slRender();
 	}
 	slClose();
@@ -23,7 +23,7 @@ DWORD CALLBACK Draw(double PointsX[],double PointsY[])
 }
 
 
-DWORD CALLBACK GenerateCoordinates(double RawCoordinatesX[], double RawCoordinatesY[])
+DWORD CALLBACK WINAPI GenerateCoordinates(LPVOID *RawCoordinatesX[], LPVOID *RawCoordinatesY[])
 {
 	
 

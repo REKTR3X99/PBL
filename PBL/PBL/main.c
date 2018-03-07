@@ -4,9 +4,10 @@
 #if (defined _WIN32 || defined _WIN64)
 
 #include <Windows.h>
-
+#include <process.h>
 #elif defined __linux__
 #include <unistd.h>
+#include <pthread.h>
 #endif
 
 
@@ -14,7 +15,7 @@
 #include <conio.h>
 #include <stdlib.h>
 
-#include <process.h>
+
 
 #include "SIGIL\include\sl.h"
 #include "BasicCalc.h"

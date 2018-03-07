@@ -1,16 +1,13 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\main.c(86): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
-  PBL.vcxproj -> F:\Code\PBL_College\PBL\x64\Debug\PBL.exe
-f:\code\pbl_college\pbl\pbl\basiccalc.h(116): warning C6011: Dereferencing NULL pointer 'EField->RequiredVaraibles.Xcomponent'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(110): warning C6011: Dereferencing NULL pointer 'EField'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(134): warning C6011: Dereferencing NULL pointer 'EField'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(145): warning C6011: Dereferencing NULL pointer 'EField->RequiredVaraibles.Ycomponent'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(144): warning C6011: Dereferencing NULL pointer 'EField->RequiredVaraibles.Xcomponent'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(162): warning C6011: Dereferencing NULL pointer 'EField'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(170): warning C6011: Dereferencing NULL pointer 'Vx0'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(171): warning C6011: Dereferencing NULL pointer 'Vy0'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(179): warning C6011: Dereferencing NULL pointer 'EField->RequiredVaraibles.Xcomponent'. 
-f:\code\pbl_college\pbl\pbl\basiccalc.h(180): warning C6011: Dereferencing NULL pointer 'EField->RequiredVaraibles.Ycomponent'. 
-f:\code\pbl_college\pbl\pbl\main.c(86): warning C6011: Dereferencing NULL pointer 'RequiredVariables->MemAllocFactor'. 
-f:\code\pbl_college\pbl\pbl\main.c(120): warning C6011: Dereferencing NULL pointer 'RequiredVariables->PlateWidth'. 
-f:\code\pbl_college\pbl\pbl\main.c(127): warning C6011: Dereferencing NULL pointer 'RequiredVariables->ProjectionAngle'. 
+f:\code\pbl_college\pbl\pbl\plotter.h(38): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+f:\code\pbl_college\pbl\pbl\plotter.h(39): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
+f:\code\pbl_college\pbl\pbl\basiccalc.h(208): warning C4113: 'DWORD (__cdecl *)(double **,double **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
+f:\code\pbl_college\pbl\pbl\main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+main.obj : error LNK2019: unresolved external symbol slWindow referenced in function Draw
+main.obj : error LNK2019: unresolved external symbol slClose referenced in function Draw
+main.obj : error LNK2019: unresolved external symbol slShouldClose referenced in function Draw
+main.obj : error LNK2019: unresolved external symbol slGetKey referenced in function Draw
+main.obj : error LNK2019: unresolved external symbol slRender referenced in function Draw
+main.obj : error LNK2019: unresolved external symbol slPoint referenced in function Draw
+F:\Code\PBL_College\PBL\PBL\SIGIL\lib\sigil.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+F:\Code\PBL_College\PBL\x64\Debug\PBL.exe : fatal error LNK1120: 6 unresolved externals
