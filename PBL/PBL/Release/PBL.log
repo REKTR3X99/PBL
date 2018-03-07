@@ -1,10 +1,14 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(203): warning C4113: 'DWORD (__stdcall *)(double **,double **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4047: 'function': 'SIZE_T' differs in levels of indirection from 'void *'
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4024: 'CreateThread': different types for formal and actual parameter 2
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4113: 'DWORD (__stdcall *)(LPVOID **,LPVOID **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4047: 'function': 'LPDWORD' differs in levels of indirection from 'LPWORD *'
+f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4024: 'CreateThread': different types for formal and actual parameter 6
 main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
 main.obj : error LNK2001: unresolved external symbol _slClose
 main.obj : error LNK2001: unresolved external symbol _slGetKey
 main.obj : error LNK2001: unresolved external symbol _slWindow
 main.obj : error LNK2001: unresolved external symbol _slRender
-main.obj : error LNK2001: unresolved external symbol _slPoint
+main.obj : error LNK2001: unresolved external symbol _slLine
 main.obj : error LNK2001: unresolved external symbol _slShouldClose
 F:\Code\PBL_College\PBL\Release\PBL.exe : fatal error LNK1120: 6 unresolved externals

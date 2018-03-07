@@ -4,28 +4,14 @@
     <SFA>
       <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>30</LINE>
-      <COLUMN>20</COLUMN>
-    </SFA>
-    <DEFECTCODE>6384</DEFECTCODE>
-    <DESCRIPTION>Dividing sizeof a pointer by another value.</DESCRIPTION>
-    <FUNCTION>GenerateCoordinates</FUNCTION>
-    <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>26</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>plotter.h</FILENAME>
-      <LINE>38</LINE>
+      <LINE>57</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
     <DEFECTCODE>6386</DEFECTCODE>
     <DESCRIPTION>Buffer overrun while writing to 'NewXCordinate':  the writable size is '_Param_(1)*_Param_(2)' bytes, but '16' bytes might be written.</DESCRIPTION>
     <FUNCTION>GenerateCoordinates</FUNCTION>
     <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>26</FUNCLINE>
+    <FUNCLINE>45</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -35,19 +21,19 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>30</LINE>
+        <LINE>49</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>31</LINE>
+        <LINE>50</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>33</LINE>
+        <LINE>52</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -59,19 +45,19 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>34</LINE>
+        <LINE>53</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>25</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>34</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -83,19 +69,19 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>38</LINE>
+        <LINE>57</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>39</LINE>
+        <LINE>58</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>46</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -107,7 +93,7 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>34</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -119,7 +105,7 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>38</LINE>
+        <LINE>57</LINE>
         <COLUMN>19</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -134,94 +120,14 @@
     <SFA>
       <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>38</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'NewXCordinate'. </DESCRIPTION>
-    <FUNCTION>GenerateCoordinates</FUNCTION>
-    <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>26</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>30</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>31</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>33</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'NewXCordinate' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>34</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>25</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>34</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Enter this loop, (assume 'i&lt;=factor')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>38</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'NewXCordinate' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>plotter.h</FILENAME>
-      <LINE>39</LINE>
+      <LINE>58</LINE>
       <COLUMN>19</COLUMN>
     </SFA>
     <DEFECTCODE>6386</DEFECTCODE>
     <DESCRIPTION>Buffer overrun while writing to 'NewYCordinate':  the writable size is '_Param_(1)*_Param_(2)' bytes, but '16' bytes might be written.</DESCRIPTION>
     <FUNCTION>GenerateCoordinates</FUNCTION>
     <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>26</FUNCLINE>
+    <FUNCLINE>45</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -231,25 +137,25 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>30</LINE>
+        <LINE>49</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>31</LINE>
+        <LINE>50</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>33</LINE>
+        <LINE>52</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>34</LINE>
+        <LINE>53</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -261,13 +167,13 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>25</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>34</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -279,19 +185,19 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>38</LINE>
+        <LINE>57</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>39</LINE>
+        <LINE>58</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>46</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -303,7 +209,7 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
+        <LINE>55</LINE>
         <COLUMN>34</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -315,1329 +221,19 @@
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>38</LINE>
+        <LINE>57</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>39</LINE>
+        <LINE>58</LINE>
         <COLUMN>19</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>Invalid write to 'NewYCordinate[1]', (writable range is 0 to 0)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>plotter.h</FILENAME>
-      <LINE>39</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'NewYCordinate'. </DESCRIPTION>
-    <FUNCTION>GenerateCoordinates</FUNCTION>
-    <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>26</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>30</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>31</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>33</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>34</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'NewYCordinate' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>25</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>36</LINE>
-        <COLUMN>34</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Enter this loop, (assume 'i&lt;=factor')</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>38</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>39</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'NewYCordinate' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>108</LINE>
-      <COLUMN>53</COLUMN>
-    </SFA>
-    <DEFECTCODE>6308</DEFECTCODE>
-    <DESCRIPTION>'realloc' might return null pointer: assigning null pointer to 'EField.ReqComponents.Xcomponent[0]', which is passed as an argument to 'realloc', will cause the original memory block to be leaked.</DESCRIPTION>
-    <FUNCTION>ElectronMovement_Parallel</FUNCTION>
-    <DECORATED>ElectronMovement_Parallel</DECORATED>
-    <FUNCLINE>102</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>136</LINE>
-      <COLUMN>53</COLUMN>
-    </SFA>
-    <DEFECTCODE>6308</DEFECTCODE>
-    <DESCRIPTION>'realloc' might return null pointer: assigning null pointer to 'EField.ReqComponents.Xcomponent[0]', which is passed as an argument to 'realloc', will cause the original memory block to be leaked.</DESCRIPTION>
-    <FUNCTION>ElectronMovement_Perpendicular</FUNCTION>
-    <DECORATED>ElectronMovement_Perpendicular</DECORATED>
-    <FUNCLINE>127</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>138</LINE>
-      <COLUMN>53</COLUMN>
-    </SFA>
-    <DEFECTCODE>6308</DEFECTCODE>
-    <DESCRIPTION>'realloc' might return null pointer: assigning null pointer to 'EField.ReqComponents.Ycomponent[0]', which is passed as an argument to 'realloc', will cause the original memory block to be leaked.</DESCRIPTION>
-    <FUNCTION>ElectronMovement_Perpendicular</FUNCTION>
-    <DECORATED>ElectronMovement_Perpendicular</DECORATED>
-    <FUNCLINE>127</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>169</LINE>
-      <COLUMN>53</COLUMN>
-    </SFA>
-    <DEFECTCODE>6308</DEFECTCODE>
-    <DESCRIPTION>'realloc' might return null pointer: assigning null pointer to 'EField.ReqComponents.Xcomponent[0]', which is passed as an argument to 'realloc', will cause the original memory block to be leaked.</DESCRIPTION>
-    <FUNCTION>ElectronMovement_Projectile</FUNCTION>
-    <DECORATED>ElectronMovement_Projectile</DECORATED>
-    <FUNCLINE>160</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>171</LINE>
-      <COLUMN>53</COLUMN>
-    </SFA>
-    <DEFECTCODE>6308</DEFECTCODE>
-    <DESCRIPTION>'realloc' might return null pointer: assigning null pointer to 'EField.ReqComponents.Ycomponent[0]', which is passed as an argument to 'realloc', will cause the original memory block to be leaked.</DESCRIPTION>
-    <FUNCTION>ElectronMovement_Projectile</FUNCTION>
-    <DECORATED>ElectronMovement_Projectile</DECORATED>
-    <FUNCLINE>160</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>182</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'Vy0'. </DESCRIPTION>
-    <FUNCTION>ElectronMovement_Projectile</FUNCTION>
-    <DECORATED>ElectronMovement_Projectile</DECORATED>
-    <FUNCLINE>160</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>165</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>166</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>169</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>171</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>173</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>174</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>177</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>178</LINE>
-        <COLUMN>10</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'Vy0' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>181</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>182</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'Vy0' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>basiccalc.h</FILENAME>
-      <LINE>181</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'Vx0'. </DESCRIPTION>
-    <FUNCTION>ElectronMovement_Projectile</FUNCTION>
-    <DECORATED>ElectronMovement_Projectile</DECORATED>
-    <FUNCLINE>160</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>165</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>166</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>169</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>171</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>173</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>174</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>177</LINE>
-        <COLUMN>10</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'Vx0' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>178</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>basiccalc.h</FILENAME>
-        <LINE>181</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'Vx0' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>main.c</FILENAME>
-      <LINE>132</LINE>
-      <COLUMN>32</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'RequiredVariables-&gt;PlateWidth'. </DESCRIPTION>
-    <FUNCTION>main</FUNCTION>
-    <DECORATED>main</DECORATED>
-    <FUNCLINE>52</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>44</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>60</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>61</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>63</LINE>
-        <COLUMN>36</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;PlateWidth' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>64</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>75</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>78</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>79</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>81</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>85</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>87</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>88</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>90</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>91</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>98</LINE>
-        <COLUMN>36</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>100</LINE>
-        <COLUMN>57</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume '&lt;branch condition&gt;' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>108</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>119</LINE>
-        <COLUMN>1</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>120</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>121</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>124</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Assume switch ( 'choice' ) resolves to case 2: </MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>129</LINE>
-        <COLUMN>1</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>130</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>131</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>132</LINE>
-        <COLUMN>32</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;PlateWidth' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>main.c</FILENAME>
-      <LINE>139</LINE>
-      <COLUMN>29</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'RequiredVariables-&gt;ProjectionAngle'. </DESCRIPTION>
-    <FUNCTION>main</FUNCTION>
-    <DECORATED>main</DECORATED>
-    <FUNCLINE>52</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>44</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>60</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>61</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>40</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;ProjectionAngle' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>63</LINE>
-        <COLUMN>36</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>64</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>75</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>78</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>79</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>81</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>85</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>87</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>88</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>90</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>91</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>98</LINE>
-        <COLUMN>36</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>100</LINE>
-        <COLUMN>57</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Skip this branch, (assume '&lt;branch condition&gt;' is false)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>108</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>117</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>119</LINE>
-        <COLUMN>1</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>120</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>121</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>124</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>branch</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>Assume switch ( 'choice' ) resolves to case 3: </MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>135</LINE>
-        <COLUMN>1</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>136</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>137</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>139</LINE>
-        <COLUMN>29</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;ProjectionAngle' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>main.c</FILENAME>
-      <LINE>98</LINE>
-      <COLUMN>36</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'RequiredVariables-&gt;MemAllocFactor'. </DESCRIPTION>
-    <FUNCTION>main</FUNCTION>
-    <DECORATED>main</DECORATED>
-    <FUNCLINE>52</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>44</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>60</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>61</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>63</LINE>
-        <COLUMN>36</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>64</LINE>
-        <COLUMN>35</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;MemAllocFactor' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>75</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>78</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>79</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>81</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>85</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>87</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>88</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>90</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>91</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>98</LINE>
-        <COLUMN>36</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;MemAllocFactor' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>main.c</FILENAME>
-      <LINE>98</LINE>
-      <COLUMN>36</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'RequiredVariables-&gt;StepSize'. </DESCRIPTION>
-    <FUNCTION>main</FUNCTION>
-    <DECORATED>main</DECORATED>
-    <FUNCLINE>52</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>44</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>60</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>61</LINE>
-        <COLUMN>35</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;StepSize' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>63</LINE>
-        <COLUMN>36</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>64</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>75</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>78</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>79</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>81</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>85</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>87</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>88</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>90</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>91</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>98</LINE>
-        <COLUMN>36</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;StepSize' is dereferenced, but may still be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>main.c</FILENAME>
-      <LINE>98</LINE>
-      <COLUMN>36</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>Dereferencing NULL pointer 'RequiredVariables-&gt;Time_Seconds'. </DESCRIPTION>
-    <FUNCTION>main</FUNCTION>
-    <DECORATED>main</DECORATED>
-    <FUNCLINE>52</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>55</LINE>
-        <COLUMN>19</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>57</LINE>
-        <COLUMN>44</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>58</LINE>
-        <COLUMN>38</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>59</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>60</LINE>
-        <COLUMN>38</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;Time_Seconds' may be NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>61</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>62</LINE>
-        <COLUMN>40</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>63</LINE>
-        <COLUMN>36</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>64</LINE>
-        <COLUMN>35</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>75</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>78</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>79</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>81</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>82</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>84</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>85</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>87</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>88</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>90</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>91</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>main.c</FILENAME>
-        <LINE>98</LINE>
-        <COLUMN>36</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'RequiredVariables-&gt;Time_Seconds' is dereferenced, but may still be NULL</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>

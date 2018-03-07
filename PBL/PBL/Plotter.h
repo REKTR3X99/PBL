@@ -1,8 +1,27 @@
 ﻿#pragma once
 
+
+//using different headers for x64 and x86
+#if defined _WIN32 
 #include "SIGIL\include\sl.h"
+#elif defined _WIN64
+#include "SIGIL\include\x64\sl.h"
+#endif
+
+//#include "SIGIL\\include\sl.h"
 #include "BasicCalc.h"
 
+typedef struct
+{
+	double *XComp;
+	double *YComp;
+}Args, *ArgsP;
+
+void PlotAssigner(double *XArgs, double *YArgs)
+{
+	Args Ar;
+	
+}
 
 //void Draw(double Points
 DWORD CALLBACK Draw(double PointsX[],double PointsY[])
@@ -23,11 +42,11 @@ DWORD CALLBACK Draw(double PointsX[],double PointsY[])
 }
 
 
-DWORD CALLBACK WINAPI GenerateCoordinates(LPVOID *RawCoordinatesX[], LPVOID *RawCoordinatesY[])
+DWORD CALLBACK WINAPI GenerateCoordinates(double *RawCoordinatesX, double *RawCoordinatesY)
 {
 	
 
-	int factor = sizeof(RawCoordinatesX) / sizeof(RawCoordinatesX[0]);
+	int factor =  sizeof(*RawCoordinatesX) / sizeof(RawCoordinatesX[0]);
 	printf("\n Factor :%d", factor);
 
 	double *NewXCordinate = (double *)calloc(factor, sizeof(double));
@@ -35,8 +54,8 @@ DWORD CALLBACK WINAPI GenerateCoordinates(LPVOID *RawCoordinatesX[], LPVOID *Raw
 
 	for (unsigned long long i = 0; i <= factor; i++)
 	{
-		NewXCordinate[i] = RawCoordinatesX[i + 1] - RawCoordinatesX[i];
-		NewYCordinate[i] = RawCoordinatesY[i + 1] - RawCoordinatesY[i];
+		NewXCordinate[i] = fabs(RawCoordinatesX[i + 1] - RawCoordinatesX[i]);
+		NewYCordinate[i] = fabs(RawCoordinatesY[i + 1] - RawCoordinatesY[i]);
 	}
 
 	Draw(NewXCordinate, NewYCordinate);

@@ -1,8 +1,20 @@
 #pragma once
-#include <stdio.h>
-#include <conio.h>
-#include <math.h> 
+#pragma warning (disable : 6011)
+
+
+#if defined _WIN32 || defined _WIN64
+
 #include <Windows.h>
+#include <process.h>
+#include <conio.h>
+#elif  defined __linux__
+#include <unistd.h>
+#endif
+
+
+#include <stdio.h>
+#include <math.h> 
+
 #include "Plotter.h"
 
 #pragma warning (disable : 4700)
@@ -53,7 +65,7 @@ struct ElectricField {
 		 float StepSize;
 	}Var;
 
-}EField;
+}EField, *EField_P;
 
 struct Miscelaneous
 {
@@ -107,7 +119,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 
 		
 		EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
-		printf("\nsize : %d", sizeof(EField.CompArray.Xcomponent));
+		printf("\nsize : %ld", (int)sizeof(EField.CompArray.Xcomponent));
 		
 
 		while (count <= Time)
@@ -198,7 +210,6 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 	
 	void CallThread()
 	{
-		
 		LPWORD ThreadID;
-		HANDLE Thread_Handle = CreateThread(0, NULL, GenerateCoordinates,&EField.CompArray, 0, &ThreadID);
+		HANDLE Thread_Handle = CreateThread(NULL, 0, GenerateCoordinates, &EField.CompArray, 0, &ThreadID);
 	}

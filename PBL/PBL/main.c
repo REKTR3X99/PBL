@@ -5,19 +5,18 @@
 
 #include <Windows.h>
 #include <process.h>
+#include <conio.h>
 #elif defined __linux__
+
 #include <unistd.h>
 #include <pthread.h>
+
 #endif
 
 
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 
-
-
-#include "SIGIL\include\sl.h"
 #include "BasicCalc.h"
 
 
