@@ -146,7 +146,7 @@ int main(int argc,char* argv[])
 	}
 
 
-	CallThread(); // Calls assigning thread
+	
 	system("pause");
 
 

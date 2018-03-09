@@ -1,8 +1,3 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\basiccalc.h(214): warning C4113: 'DWORD (__cdecl *)(double *,double *)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
-f:\code\pbl_college\pbl\pbl\basiccalc.h(214): warning C4047: 'function': 'LPDWORD' differs in levels of indirection from 'LPWORD *'
-f:\code\pbl_college\pbl\pbl\basiccalc.h(214): warning C4024: 'CreateThread': different types for formal and actual parameter 6
 f:\code\pbl_college\pbl\pbl\main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
   PBL.vcxproj -> F:\Code\PBL_College\PBL\x64\Debug\PBL.exe
-f:\code\pbl_college\pbl\pbl\plotter.h(57): warning C6386: Buffer overrun while writing to 'NewXCordinate':  the writable size is '_Param_(1)*_Param_(2)' bytes, but '16' bytes might be written.
-f:\code\pbl_college\pbl\pbl\plotter.h(58): warning C6386: Buffer overrun while writing to 'NewYCordinate':  the writable size is '_Param_(1)*_Param_(2)' bytes, but '16' bytes might be written.

@@ -119,7 +119,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 
 		
 		EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
-		printf("\nsize : %ld", (int)sizeof(EField.CompArray.Xcomponent));
+		//printf("\nsize : %ld", (int)sizeof(EField.CompArray.Xcomponent));
 		
 
 		while (count <= Time)
@@ -127,15 +127,17 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
 			
 			EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
-			printf("\nX Main Loop : %g", EField.Parallel.X_Component);
+			//printf("\nX Main Loop : %g", EField.Parallel.X_Component);
 			count += StepSize;
 			Index++;
 		}
 
-		for (unsigned int i = 0; i <= Misc.MemAllocFactor - 1; i++)
-		{
-			printf("\nX = %g", EField.CompArray.Xcomponent[i]);
-		}	
+		//for (unsigned int i = 0; i <= Misc.MemAllocFactor-1; i++)
+		//{
+		//	printf("\nX = %g", EField.CompArray.Xcomponent[i]);
+		//}	
+
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent);// Calls assigning thread
 	}
 	void ElectronMovement_Perpendicular(float PlateWidth)
 	{		
@@ -163,7 +165,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			
 			printf("\nRunning");
 		}
-		
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent);
 	}
 
 	void ElectronMovement_Projectile(float ProjectionAngle_Electron)
@@ -182,11 +184,12 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		double *Vy0 = (double *)malloc(sizeof(double));
 
 
-		*Vx0 = EField.Var.InitialVelocity* sin(ProjectionAngle_Electron);
-		*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron) * EField.Var.TimeEpoch;
+		*Vx0 = EField.Var.InitialVelocity * sin(ProjectionAngle_Electron);
+		
 
 		while (Misc.count <= EField.Var.TimeEpoch)
 		{
+			*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron) * Misc.count;
 			EField.Projection.HorizontalComponent_X = *Vx0 * Misc.count;
 			EField.Projection.VerticalComponent_Y = *Vy0 + (0.5 * Acceleration_Electron * pow(Misc.count, 2));
 
@@ -196,20 +199,15 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
 
-			printf("\nRunning");
+			printf("\n%g", EField.CompArray.Ycomponent[Misc.index]);
 		}
 		
 		free(Vx0);
 		free(Vy0);
 		
-
 		printf("\n\n");
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent);
+		
 	
 	}
 
-	
-	void CallThread()
-	{
-		LPWORD ThreadID;
-		HANDLE Thread_Handle = CreateThread(NULL, 0, GenerateCoordinates, &EField.CompArray, 0, &ThreadID);
-	}

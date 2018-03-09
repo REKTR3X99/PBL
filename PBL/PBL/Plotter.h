@@ -1,6 +1,12 @@
 ﻿#pragma once
 
+#define XRes 800
+#define YRes 600
 
+#include <malloc.h>
+
+
+#include "BasicCalc.h"
 //using different headers for x64 and x86
 #if defined _WIN32 
 #include "SIGIL\include\sl.h"
@@ -8,32 +14,32 @@
 #include "SIGIL\include\x64\sl.h"
 #endif
 
-//#include "SIGIL\\include\sl.h"
-#include "BasicCalc.h"
-
-typedef struct
+struct Arguments
 {
 	double *XComp;
 	double *YComp;
-}Args, *ArgsP;
+}Args, *PArgs;
 
-void PlotAssigner(double *XArgs, double *YArgs)
+
+struct NewCords
 {
-	Args Ar;
-	
-}
+	double *XCords_Gen;
+	double *YCords_Gen;
+}NCords;
+
 
 //void Draw(double Points
-DWORD CALLBACK Draw(double PointsX[],double PointsY[])
+DWORD CALLBACK WINAPI Draw(double PointsX[],double PointsY[])
 {
-	slWindow(800, 600, "Plot", 0);
-	int i = 0;
-
+	slWindow(XRes, YRes, "Plot", 0);
+	unsigned long int i = 0;
+	
 	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
 	{
-		slLine(PointsX[i], PointsY[i], PointsX[i+1], PointsY[i+1]);
+		slLine(PointsX[i],PointsY[i],PointsX[48],PointsY[48]);
 		//slPoint(PointsX[i], PointsX[i+1]);
 		slRender();
+		i++;
 	}
 	slClose();
 
@@ -42,25 +48,56 @@ DWORD CALLBACK Draw(double PointsX[],double PointsY[])
 }
 
 
-DWORD CALLBACK WINAPI GenerateCoordinates(double *RawCoordinatesX, double *RawCoordinatesY)
+void GenerateCoordinates(unsigned long long ElemCount)
 {
+	double Max_X = Args.XComp[0];
+	double Max_Y= 0;
 	
 
-	int factor =  sizeof(*RawCoordinatesX) / sizeof(RawCoordinatesX[0]);
-	printf("\n Factor :%d", factor);
-
-	double *NewXCordinate = (double *)calloc(factor, sizeof(double));
-	double *NewYCordinate = (double *)calloc(factor, sizeof(double));
-
-	for (unsigned long long i = 0; i <= factor; i++)
+	//Scaling down the values to fit into the resolution of the window
+	
+	if (Args.YComp == 0)
 	{
-		NewXCordinate[i] = fabs(RawCoordinatesX[i + 1] - RawCoordinatesX[i]);
-		NewYCordinate[i] = fabs(RawCoordinatesY[i + 1] - RawCoordinatesY[i]);
+		NCords.XCords_Gen = (double *)calloc(ElemCount, sizeof(double)); 
+
+		for (unsigned long long i = 0; i <= ElemCount; i++)
+		{
+			Max_X = (Max_X < Args.XComp[i]) ? Args.XComp[i] : Max_X;
+			
+		}
+	}
+	else
+	{
+		NCords.XCords_Gen = (double *)calloc(ElemCount, sizeof(double));
+		NCords.YCords_Gen = (double *)calloc(ElemCount, sizeof(double));
+		for (unsigned long long i = 0; i <= ElemCount; i++)
+		{
+			Max_X = (Max_X < Args.XComp[i]) ? Args.XComp[i] : Max_X;
+			Max_Y = (Max_Y < Args.YComp[i]) ? Args.YComp[i] : Max_Y;
+		}
 	}
 
-	Draw(NewXCordinate, NewYCordinate);
-
+	for (unsigned long long i = 0; i < ElemCount; i++)
+	{
+		NCords.XCords_Gen[i] = (Args.XComp[i] * XRes )/ Max_X;
+		printf("\n%lf", NCords.XCords_Gen[i]);
+	}
 	
-	return 0;
+	
 }
 
+void PlotAssigner(double *XRawCords, double *YRawCords)
+{
+	
+	unsigned long long Elems = _msize(XRawCords) / sizeof(XRawCords[0]);
+
+	Args.XComp = XRawCords;
+	Args.YComp = YRawCords;
+
+	//free(XRawCords);
+	//free(YRawCords);
+
+	GenerateCoordinates(Elems);
+	system("pause");
+	
+}
