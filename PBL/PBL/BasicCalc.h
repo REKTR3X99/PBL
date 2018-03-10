@@ -184,12 +184,12 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		double *Vy0 = (double *)malloc(sizeof(double));
 
 
-		*Vx0 = EField.Var.InitialVelocity * sin(ProjectionAngle_Electron);
-		
+		*Vx0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron);
+		*Vy0 = EField.Var.InitialVelocity * sin(ProjectionAngle_Electron) * EField.Var.TimeEpoch;
 
 		while (Misc.count <= EField.Var.TimeEpoch)
 		{
-			*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron) * Misc.count;
+			
 			EField.Projection.HorizontalComponent_X = *Vx0 * Misc.count;
 			EField.Projection.VerticalComponent_Y = *Vy0 + (0.5 * Acceleration_Electron * pow(Misc.count, 2));
 
@@ -199,7 +199,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
 
-			printf("\n%g", EField.CompArray.Ycomponent[Misc.index]);
+			printf("\nX0 = %g\t Y0 = %g",*Vx0,*Vy0);
 		}
 		
 		free(Vx0);
