@@ -16,7 +16,7 @@ paste them into C:\Windows\SysWOW64
 
 =================================================================================
 
-**bold For x86 system**
+**For x86 system**
 
 
 go to PBL\PBL\SIGIL and copy the following dll files 
