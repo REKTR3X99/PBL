@@ -46,9 +46,6 @@ unsigned long long GetAvailableMemory()
 	return status.ullAvailPhys;
 }
 
-
-
-
 int main(int argc,char* argv[])
 {
 	
@@ -141,6 +138,7 @@ int main(int argc,char* argv[])
 
 	default : 
 		printf("\nThe value entered doesn't match with any of the option, please try again");
+		choice = 0;
 		goto Choice; //Jump back to choice if the user inputs wrong values
 		break;
 	}

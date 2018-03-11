@@ -1,5 +1,5 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\plotter.h(99): warning C4028: formal parameter 1 different from declaration
-f:\code\pbl_college\pbl\pbl\plotter.h(99): warning C4022: 'CreateThread': pointer mismatch for actual parameter 4
+f:\code\pbl_college\pbl\pbl\plotter.h(103): warning C4028: formal parameter 1 different from declaration
+f:\code\pbl_college\pbl\pbl\plotter.h(103): warning C4022: 'CreateThread': pointer mismatch for actual parameter 4
 f:\code\pbl_college\pbl\pbl\main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
   PBL.vcxproj -> F:\Code\PBL_College\PBL\x64\Debug\PBL.exe

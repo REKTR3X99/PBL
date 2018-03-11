@@ -1,15 +1,10 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\Plotter.h(46): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
-f:\code\pbl_college\pbl\pbl\Plotter.h(47): warning C4244: '=': conversion from '__int64' to 'double', possible loss of data
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(122): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type '::size_t'
-  f:\code\pbl_college\pbl\pbl\BasicCalc.h(122): note: consider using '%zd' in the format string
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4047: 'function': 'SIZE_T' differs in levels of indirection from 'void *'
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4024: 'CreateThread': different types for formal and actual parameter 2
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4113: 'DWORD (__cdecl *)(LPVOID **,LPVOID **)' differs in parameter lists from 'LPTHREAD_START_ROUTINE'
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4047: 'function': 'LPDWORD' differs in levels of indirection from 'LPWORD *'
-f:\code\pbl_college\pbl\pbl\BasicCalc.h(215): warning C4024: 'CreateThread': different types for formal and actual parameter 6
+f:\code\pbl_college\pbl\pbl\Plotter.h(103): warning C4028: formal parameter 1 different from declaration
+f:\code\pbl_college\pbl\pbl\Plotter.h(103): warning C4022: 'CreateThread': pointer mismatch for actual parameter 4
 main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
   Generating code
-  All 16 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  6 of 16 functions (37.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   PBL.vcxproj -> F:\Code\PBL_College\PBL\x64\Release\PBL.exe

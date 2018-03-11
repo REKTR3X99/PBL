@@ -38,13 +38,14 @@ DWORD CALLBACK WINAPI Draw(unsigned long long ElemCount)
 	{
 		
 		slSetForeColor(0.1, 1, 0.1, 1);
-		slLine(NCords.XCords_Gen[i],NCords.YCords_Gen[i],NCords.XCords_Gen[i+1],NCords.YCords_Gen[i+1]);
+		slCircleFill(NCords.XCords_Gen[i], NCords.YCords_Gen[i], 2, 64);
+		//slLine(NCords.XCords_Gen[i],NCords.YCords_Gen[i],NCords.XCords_Gen[i+1],NCords.YCords_Gen[i+1]);
 		//slText(NCords.XCords_Gen[i], NCords.YCords_Gen[i], ".");
 		slRender();
 		i++;
 		
 		//	slScale(NCords.XCords_Gen[i], NCords.YCords_Gen[i]);
-		Sleep(16);
+		Sleep(10);
 		if (i == ElemCount)
 		{
 			slSetForeColor(0, 0, 0, 0);
@@ -64,7 +65,7 @@ void GenerateCoordinates(unsigned long long ElemCount)
 	double Max_X = Args.XComp[0];
 	double Max_Y= 0;
 	
-
+	
 	//Scaling down the values to fit into the resolution of the window
 	
 	if (Args.YComp == 0)
@@ -74,6 +75,7 @@ void GenerateCoordinates(unsigned long long ElemCount)
 		for (unsigned long long i = 0; i <= ElemCount; i++)
 		{
 			Max_X = (Max_X < Args.XComp[i]) ? Args.XComp[i] : Max_X;
+			NCords.YCords_Gen[i] = YRes / 2;
 			
 		}
 	}
@@ -87,13 +89,15 @@ void GenerateCoordinates(unsigned long long ElemCount)
 			Max_Y = (Max_Y < Args.YComp[i]) ? Args.YComp[i] : Max_Y;
 		}
 	}
-
+	
 	for (unsigned long long i = 0; i < ElemCount; i++)
 	{
 		NCords.XCords_Gen[i] = (Args.XComp[i] * XRes )/ Max_X;
 		NCords.YCords_Gen[i] = (Args.YComp[i] * YRes )/ Max_Y;
 		printf("\nX = %lf\t Y = %lf", NCords.XCords_Gen[i], NCords.YCords_Gen[i]);
 	}
+	
+	
 	
 	DWORD ThreadID;
 	HANDLE DrawHandle = CreateThread(NULL, 0, Draw, ElemCount, 0, &ThreadID);
