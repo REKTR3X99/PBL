@@ -1,7 +1,7 @@
 ﻿  main.c
-f:\code\pbl_college\pbl\pbl\Plotter.h(103): warning C4028: formal parameter 1 different from declaration
-f:\code\pbl_college\pbl\pbl\Plotter.h(103): warning C4022: 'CreateThread': pointer mismatch for actual parameter 4
-main.c(98): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+f:\code\pbl_college\pbl\pbl\Plotter.h(124): warning C4028: formal parameter 1 different from declaration
+f:\code\pbl_college\pbl\pbl\Plotter.h(124): warning C4022: 'CreateThread': pointer mismatch for actual parameter 4
+main.c(95): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
   Generating code
   6 of 16 functions (37.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
