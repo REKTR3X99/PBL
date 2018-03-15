@@ -1,10 +1,6 @@
 ﻿#pragma once
-#include <Windows.h>
-
-#define XRes 800
-#define YRes 600
-
 #include <malloc.h>
+
 #include <Windows.h>
 
 #include "BasicCalc.h"
@@ -15,10 +11,17 @@
 #include "SIGIL\include\x64\sl.h"
 #endif
 
+
+
+#define XRes 800
+#define YRes 600
+
+
 struct Arguments
 {
 	double *XComp;
 	double *YComp;
+	double *MaxYCord;
 }Args;
 
 struct NewCords
@@ -27,9 +30,51 @@ struct NewCords
 	double *YCords_Gen;
 }NCords;
 
+DWORD CALLBACK WINAPI Draw_Parallel(unsigned long long ElemCount)
+{
+	slWindow(XRes, YRes, "Plot", 0);
 
-//void Draw(double Points
-DWORD CALLBACK WINAPI Draw(unsigned long long ElemCount)
+	while (slShouldClose() && slGetKey(SL_KEY_ESCAPE))
+	{
+		slSetForeColor(0, 0.3, 1, 1);
+		slLine(0, 50, XRes, 50);
+		slLine(0, 100, XRes, 100);
+
+	}
+
+	slClose();
+}
+
+DWORD CALLBACK WINAPI Draw_Perpendicular(unsigned long long ElemCount)
+{
+	slWindow(XRes, YRes, "Plot", 0);
+	int LineDrawCount_X = XRes;
+	int LineDrawCount_Y = YRes;
+	int i = 0;
+	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
+	{
+		slSetForeColor(0, 0.3, 1, 1);
+		for (i = 0; i < 8; i++)
+		{
+			slLine(100 * i, YRes, 100 * i, LineDrawCount_Y -= 0.5); //drawing direction of perpendicular magnetic lines
+		   //slLine(0, 100, XRes, 100);
+			if (LineDrawCount_Y < 0)
+			{
+				LineDrawCount_Y = YRes;
+				continue;
+			}
+		}
+
+		slRender();
+	}
+
+	slClose();
+}
+
+
+
+//Drawing for Projectile
+DWORD CALLBACK WINAPI Draw_Projectile(unsigned long long ElemCount)
 {
 	int XInterval = 50;
 	slWindow(XRes, YRes, "Plot", 0);
@@ -80,11 +125,19 @@ DWORD CALLBACK WINAPI Draw(unsigned long long ElemCount)
 }
 
 
+
 void GenerateCoordinates(unsigned long long ElemCount)
 {
 	double Max_X = Args.XComp[0];
 	double Max_Y= 0;
 	
+	//for (unsigned long long i = 0; i <= ElemCount; i++)
+	//{
+	//	if (Args.XComp[i] > *Args.MaxYCord)
+	//	{
+	//		Args.XComp[i] = *Args.MaxYCord - Args.XComp[i];
+	//	}
+	//}
 	
 	//Scaling down the values to fit into the resolution of the window
 	
@@ -118,24 +171,46 @@ void GenerateCoordinates(unsigned long long ElemCount)
 		printf("\nX = %lf\t Y = %lf", NCords.XCords_Gen[i], NCords.YCords_Gen[i]);
 	}
 	
-	
-	
-	DWORD ThreadID;
-	HANDLE DrawHandle = CreateThread(NULL, 0, Draw, ElemCount, 0, &ThreadID);
 }
 
-void PlotAssigner(double *XRawCords, double *YRawCords)
+void PlotAssigner(double *XRawCords, double *YRawCords, double *MaxYCordRaw, int Identifier)
 {
 	
 	unsigned long long Elems = _msize(XRawCords) / sizeof(XRawCords[0]);
+	DWORD ThreadID;
+	HANDLE DrawHandle;
+	
 
 	Args.XComp = XRawCords;
 	Args.YComp = YRawCords;
-
-	//free(XRawCords);
-	//free(YRawCords);
+	Args.MaxYCord = MaxYCordRaw;
 
 	GenerateCoordinates(Elems);
+	switch (Identifier)
+	{
+	case 0 :
+		DrawHandle = CreateThread(NULL, 0, Draw_Parallel, Elems, 0, &ThreadID);
+		break;
+
+	case 1:
+		DrawHandle = CreateThread(NULL, 0, Draw_Perpendicular, Elems, 0, &ThreadID);
+		break;
+
+	case 2:
+		DrawHandle = CreateThread(NULL, 0, Draw_Projectile, Elems, 0, &ThreadID);
+		break;
+
+	case 3:
+		break;
+
+	case 4:
+		break;
+		
+	}
+	
+	
+	
+	
 	system("pause");
 	
 }

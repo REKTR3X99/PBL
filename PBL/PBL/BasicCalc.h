@@ -109,10 +109,10 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 
 
 
-	void ElectronMovement_Parallel()
+	void ElectronMovement_Parallel(int Identifier)
 	{
 		float count = Misc.count = 0;
-		int Index = Misc.index = 0;
+		int Index = Misc.index =0;
 		float Time = EField.Var.TimeEpoch;
 		float StepSize = EField.Var.StepSize;
 		unsigned int mem = Misc.MemAllocFactor;
@@ -137,9 +137,9 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		//	printf("\nX = %g", EField.CompArray.Xcomponent[i]);
 		//}	
 
-		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent);// Calls assigning thread
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent, &EField.Projection.MaxVerticalDisplacement, Identifier);// Calls assigning thread
 	}
-	void ElectronMovement_Perpendicular(float PlateWidth)
+	void ElectronMovement_Perpendicular(float PlateWidth, int Identifier)
 	{		
 		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
 		
@@ -165,10 +165,10 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			
 			printf("\nRunning");
 		}
-		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent);
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent,NULL,Identifier);
 	}
 
-	void ElectronMovement_Projectile(float ProjectionAngle_Electron)
+	void ElectronMovement_Projectile(float ProjectionAngle_Electron, int Identifier)
 	{
 		//struct ElectricField *EField = (struct ElectricField *)malloc(sizeof(struct ElectricField));
 		
@@ -209,7 +209,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		free(Vy0);
 		
 		printf("\n\n");
-		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent);
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent,&EField.Projection.MaxVerticalDisplacement,Identifier);
 		
 	
 	}

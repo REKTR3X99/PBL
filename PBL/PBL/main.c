@@ -23,6 +23,15 @@
 #pragma warning (disable :4996) //disabling warning for safe function declarations
 #pragma warning (disable :6031) //disabling return value ignored for scanf; specifically for x64 build
 
+enum FieldTypes
+{
+	Parallel_Electric,
+	Perpendicular_Electric,
+	Projectile_Electric,
+	Longitudinal_Magnetic,
+	Transverse_Magnetic
+};
+
 struct Variables
 {
 	double *PotentialDifference;
@@ -48,6 +57,7 @@ unsigned long long GetAvailableMemory()
 
 int main(int argc,char* argv[])
 {
+	enum FieldType FieldType;
 	
 	struct Variables *RequiredVariables		   = (struct Variables *)malloc(sizeof(struct Variables));
 
@@ -94,9 +104,9 @@ int main(int argc,char* argv[])
 	//if yes -> program exits
 	*RequiredVariables->MemAllocFactor = *RequiredVariables->Time_Seconds / *RequiredVariables->StepSize;
 
-	if (*RequiredVariables->MemAllocFactor * sizeof(double) > GetAvailableMemory() * 0.7)
+	if (*RequiredVariables->MemAllocFactor * sizeof(double) > GetAvailableMemory() * 0.8)
 	{
-		printf("\nSorry but the value you entered exceeds over 70%% of the available memory.");
+		printf("\nSorry but the value you entered exceeds over 80%% of the available memory.");
 		printf("\nThe program will now exit");		  
 		return -1;
 	}
@@ -117,23 +127,27 @@ int main(int argc,char* argv[])
 	printf("\n1: Parallel ElectricField\n2: Perpendicular Electric Field\n3: Projectile Electric Field");
 	scanf("%d", &choice);
 
+
 	
 	switch (choice)
 	{
 	case 1 :
-		ElectronMovement_Parallel();
+		FieldType = Parallel_Electric;
+		ElectronMovement_Parallel(FieldType);
 		break;
 	case 2 : 
+		FieldType = Perpendicular_Electric;
 		printf("\nEnter Plate Width");
 		scanf("%f", RequiredVariables->PlateWidth);
-		ElectronMovement_Perpendicular(*RequiredVariables->PlateWidth);
+		ElectronMovement_Perpendicular(*RequiredVariables->PlateWidth,FieldType);
 		break;
 
 	case 3 : 
+		FieldType = Projectile_Electric;
 		printf("\nEnter Projection Angle");
 		scanf("%f", RequiredVariables->ProjectionAngle);
 
-		ElectronMovement_Projectile(*RequiredVariables->ProjectionAngle);
+		ElectronMovement_Projectile(*RequiredVariables->ProjectionAngle, Projectile_Electric);
 		break;
 
 	default : 
