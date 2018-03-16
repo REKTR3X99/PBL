@@ -1,0 +1,137 @@
+\documentclass[a4paper,20pt,twoside]{report}
+\usepackage[left = 0.5in, top = 0.5in,bottom = 0.5in]{geometry}
+\usepackage{titlesec}
+\pagestyle{myheadings}
+
+\begin{document}
+	\title{Simulating Motion Of Charged Particle/Electron Through an Electric and Magnetic Field}
+	\maketitle
+	
+	\section[15pt]{Aim}
+	To simulate the motion of a charged particle inside an Electric and Magnetic Field.
+	
+	\section[15pt]{Introduction}
+	The project focuses on simulating/tracing the motion of a charged particle/electron
+	under the influence of an external Electric and Magnetic Fieled.
+	The electron trajectories can be given an desired shape by applying an Electric or
+	Magnetic Field
+	
+	\section[15ppt]{Applications}
+		\begin{description}
+			\item [$\bullet$ Radio]
+			\item [$\bullet$ Television]
+			\item [$\bullet$ CRO]
+			\item [$\bullet$ Mass Spectrograph]
+			\item [$\bullet$ Particle Accelerators]
+	    \end{description}	
+    
+    \section{Motion of electron inside an uniform Electric Field}
+    \subsection{Types of motion exhibited by electron}
+    \begin{description}
+    	\item [$\bullet$ Parallel to Electric Field]
+    	\item [$\bullet$ Perpendicular to Electric Field]
+    	\item [$\bullet$ Projected at an angle to the Electric Field]
+    \end{description}
+		
+	\subsection{Basic Calculation}
+		When an electron is projected inside an electric field, sustained by 2 plates
+		\textbf{A} and \textbf{B}
+		with A being 
+		\textbf{positively}
+		charged and B being
+		\textbf{negatively}
+	    charged, having a potential
+		\textbf{V}
+		 given by
+		\textbf{[$V_a$ - $V_b$]}
+		at a distance of \textbf{d}
+		 the intensity of the electric field between the plate is given by
+		
+		\begin{equation}
+		E = \frac{V}{d}
+		\end{equation}
+		
+		
+		Force experienced by an electron at rest on plate
+		\textbf{B}
+		\begin{equation}
+		F = -eE
+		\end{equation}
+		
+		\textnormal{The acceleration is given by}
+		\begin{equation}
+		a = \frac{F}{m} = -\frac{eE}{-eE}{m}
+		\end{equation}
+		\vspace{10mm}
+		\textbf{The corresponding code in the project is given in:\\}
+		\vspace{2mm}
+		\textit{Basic\_Calculations} \textnormal{in }\textit{BasicCalc.h}
+		\vspace{2mm}
+		
+		\begin{verbatim}
+		void Basic_Calculations(double PotentialDifference, double PlateDistance)
+		{
+		Energy_Electron = PotentialDifference / PlateDistance;  //Energy of the electron
+		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force on electron at Plate B
+		Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS;  //Acceleration of Electron
+		}
+		\end{verbatim}
+		
+		
+		\subsection{Parallel to Electric Field}
+			The velocity  \textbf{V} is given by :
+			
+			\begin{equation}
+			V = V_0 + at
+			\end{equation}
+			where $V_0$ is the \textbf{initial velocity} of the electron or charged particle
+			
+			The displacement of the electron is given by 
+			\begin{equation}
+			S = V_0 + \frac{1}{2}at^2
+			\end{equation}
+			
+			Velocity at any given time denoted by \textbf{$V_t$} is given by
+			\begin{equation}
+			V_t = \frac{eE}{2m}t = \sqrt{\frac{2eE}{m} x}
+			\end{equation}
+			
+			\subsubsection{parallel electric field used in project}
+			
+			\begin{equation}
+			X = \frac{eE}{2m}t^2
+			\end{equation}
+			
+			The above equation gives the horizontal displacement of X which is depended
+			on the value of \textbf{t}
+			
+			The calculation is done by the following code :
+			\vspace{10mm}
+			\begin{verbatim}
+		void ElectronMovement_Parallel(int Identifier)
+			{
+			float count = Misc.count = 0;
+			int Index = Misc.index =0;
+			float Time = EField.Var.TimeEpoch;
+			float StepSize = EField.Var.StepSize;
+			unsigned int mem = Misc.MemAllocFactor;
+			
+			
+			EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
+		
+			while (count <= Time)
+			{
+			EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
+			
+			EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
+			count += StepSize;
+			Index++;
+			}
+		
+			}
+			\end{verbatim}
+	
+	\subsection{Perpendicular to Electric Field}
+	If \textbf{A} and \textbf{B} are two metal plates placed horizontally parallel to each other
+	at a length \textbf{l}
+		\end{document}
