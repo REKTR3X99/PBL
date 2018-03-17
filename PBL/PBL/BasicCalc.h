@@ -167,7 +167,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			Misc.index++;
 			Misc.count += EField.Var.StepSize;
 			
-			printf("\nRunning");
+			//printf("\nRunning");
 		}
 		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent,NULL,Identifier);
 	}
