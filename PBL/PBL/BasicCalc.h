@@ -95,9 +95,9 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 }
 
 #pragma region Basic Calculations
-	void Basic_Calculations(double PotentialDifference, double PlateDistance)
+	void Basic_Calculations()
 	{
-		Energy_Electron = PotentialDifference / PlateDistance; //Energy of the electron
+		Energy_Electron = EField.Var.PotentialDifference/EField.Var.PlateDistance; //Energy of the electron
 		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force of the electorn on plate B ( The plate form which the electron enters into the field)
 		Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS; //Acceleration of the electron: negating by -1 to get a positive result for acceleration
 
@@ -105,7 +105,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		printf("\n%g", Force_Electron);
 		printf("\n%g", Acceleration_Electron);
 
-	}defining a sub section latex
+	}
 #pragma endregion
 
 
@@ -159,7 +159,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
 			
 			//in-corporate this into the co-ordinate system
-			EFiel.Perpendicular.AngularDisplacement = Energy_Electron/(2 * ELECTRON_MASS * EField.Var.InitialVelocity) * pow(EField.Perpendicular.HorizontalDisplacement_X,2);
+			EField.Perpendicular.AngularDisplacement = Energy_Electron/(2 * ELECTRON_MASS * EField.Var.InitialVelocity) * pow(EField.Perpendicular.HorizontalDisplacement_X,2);
 			
 			
 			EField.CompArray.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
@@ -182,7 +182,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		
 		
 		EField.Projection.MaxVerticalDisplacement = (pow(EField.Var.InitialVelocity, 2) * pow(sin(ProjectionAngle_Electron),2))/ 2 * Acceleration_Electron;
-		printf("\n%g", EField.Projection.MaxVerticalDisplacement);
+		printf("\nMax Vertical = %g", EField.Projection.MaxVerticalDisplacement);
 		
 		EField.CompArray.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
 		EField.CompArray.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
@@ -191,8 +191,8 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		double *Vy0 = (double *)malloc(sizeof(double));
 
 
-		*Vx0 = EField.Var.InitialVelocity * sin(ProjectionAngle_Electron);
-		*Vy0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron);// *EField.Var.TimeEpoch;
+		*Vx0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron);
+		*Vy0 = EField.Var.InitialVelocity * sin(ProjectionAngle_Electron);// *EField.Var.TimeEpoch;
 
 		printf("\nX0 = %g\t Y0 = %g", *Vx0, *Vy0);
 		
@@ -209,11 +209,12 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			Misc.count += EField.Var.StepSize;
 		}
 		
+		EField.Projection.RangeOfElectron = (*Vy0) * (2 * (*Vx0) / Acceleration_Electron);
 		free(Vx0);
 		free(Vy0);
 		
-		printf("\n\n");
-		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent,&EField.Projection.MaxVerticalDisplacement,Identifier);
+		printf("\n\n Range = %g",EField.Projection.RangeOfElectron);
+		PlotAssigner(EField.CompArray.Xcomponent, EField.CompArray.Ycomponent,&EField.Projection.MaxVerticalDisplacement,Identifier,EField.Projection.RangeOfElectron);
 		
 	
 	}

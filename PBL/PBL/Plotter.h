@@ -22,6 +22,7 @@ struct Arguments
 	double *XComp;
 	double *YComp;
 	double *MaxYCord;
+	double MaxXCord;
 }Args;
 
 struct NewCords
@@ -33,13 +34,18 @@ struct NewCords
 DWORD CALLBACK WINAPI Draw_Parallel(unsigned long long ElemCount)
 {
 	slWindow(XRes, YRes, "Plot", 0);
-
-	while (slShouldClose() && slGetKey(SL_KEY_ESCAPE))
+	unsigned long long i = 0;
+	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
 	{
-		slSetForeColor(0, 0.3, 1, 1);
-		slLine(0, 50, XRes, 50);
-		slLine(0, 100, XRes, 100);
-
+		slSetForeColor(0, 1, 0, 1);
+		slCircleFill(NCords.XCords_Gen[i], NCords.YCords_Gen[i], 2.5, 128);
+		i++;
+		if (i == ElemCount)
+		{
+			i = 0;
+			continue;
+		}
+		slRender();
 	}
 
 	slClose();
@@ -50,21 +56,38 @@ DWORD CALLBACK WINAPI Draw_Perpendicular(unsigned long long ElemCount)
 	slWindow(XRes, YRes, "Plot", 0);
 	int LineDrawCount_X = XRes;
 	int LineDrawCount_Y = YRes;
+	float alpha = 1;
 	int i = 0;
 	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
 	{
+		slSetForeColor(1, 1, 1, 1);
+		slSetFontSize(100);
+		slText(700, 300, "Magnetic Field");
 		slSetForeColor(0, 0.3, 1, 1);
-		for (i = 0; i < 8; i++)
-		{
-			slLine(100 * i, YRes, 100 * i, LineDrawCount_Y -= 0.5); //drawing direction of perpendicular magnetic lines
-		   //slLine(0, 100, XRes, 100);
-			if (LineDrawCount_Y < 0)
-			{
-				LineDrawCount_Y = YRes;
-				continue;
-			}
-		}
+		//drawing direction of perpendicular magnetic lines
+		slLine(100, YRes, 100, LineDrawCount_Y -= 1);
+		slLine(200, YRes, 200, LineDrawCount_Y -= 1);
+		slLine(300, YRes, 300, LineDrawCount_Y -= 1);
+		slLine(400, YRes, 400, LineDrawCount_Y -= 1);
+		slLine(500, YRes, 500, LineDrawCount_Y -= 1);
+		slLine(600, YRes, 600, LineDrawCount_Y -= 1);
+		slLine(700, YRes, 700, LineDrawCount_Y -= 1);
 
+		   //slLine(0, 100, XRes, 100);
+		slSetForeColor(0, 0.9, 0, 1);
+		slCircleFill(NCords.XCords_Gen[i], NCords.YCords_Gen[i], 2, 128);
+		i++;
+		if (i == ElemCount)
+		{
+			i = 0;
+			continue;
+		}
+		if (LineDrawCount_Y < 0)
+		{
+			LineDrawCount_Y = YRes;
+			
+		}
+		//Sleep(20);
 		slRender();
 	}
 
@@ -80,6 +103,29 @@ DWORD CALLBACK WINAPI Draw_Projectile(unsigned long long ElemCount)
 	slWindow(XRes, YRes, "Plot", 0);
 	unsigned long long i = 0;
 	slSetFontSize(35);
+	//unsigned long long i = 0;
+	int j = 0;
+	for ( i = 0; i <= ElemCount; i++)
+	{
+		if (Args.YComp[i] > *Args.MaxYCord)
+			break;
+	}
+
+	for (j = i; j <= ElemCount; j--)
+	{
+		{
+		Args.YComp[i] =  Args.YComp[j+1] + Args.MaxXCord;
+
+		}
+		++i;;
+	}
+	for (unsigned long long i = 0; i < ElemCount; i++)
+	{
+		//NCords.XCords_Gen[i] = Args.XComp[i] * XRes / 100;
+		NCords.YCords_Gen[i] = ((Args.YComp[i] * (YRes - 50)) / (*Args.MaxYCord)) + 30;
+	}
+	
+
 	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
 	{
 		//Drawing X and Y axes
@@ -88,7 +134,7 @@ DWORD CALLBACK WINAPI Draw_Projectile(unsigned long long ElemCount)
 		slLine(3, 30,  4, 70); //Y-Axis 
 
 		//Displaying X and Y
-		slSetFontSize(36);
+		slSetFontSize(100);
 		slText(4, 100, "Y");
 		slText(50, 50, "X");
 
@@ -105,7 +151,7 @@ DWORD CALLBACK WINAPI Draw_Projectile(unsigned long long ElemCount)
 		//}
 		//Drawing electron
 		slSetForeColor(0.1, 1, 0.1, 1);
-		slCircleFill(NCords.XCords_Gen[i], NCords.YCords_Gen[i], 2, 128);
+		slCircleFill(NCords.XCords_Gen[i], NCords.YCords_Gen[i], 2.5, 128);
 		
 		slRender();
 		i++;
@@ -130,14 +176,7 @@ void GenerateCoordinates(unsigned long long ElemCount)
 {
 	double Max_X = Args.XComp[0];
 	double Max_Y= 0;
-	
-	//for (unsigned long long i = 0; i <= ElemCount; i++)
-	//{
-	//	if (Args.XComp[i] > *Args.MaxYCord)
-	//	{
-	//		Args.XComp[i] = *Args.MaxYCord - Args.XComp[i];
-	//	}
-	//}
+	unsigned long long i;
 	
 	//Scaling down the values to fit into the resolution of the window
 	
@@ -145,11 +184,11 @@ void GenerateCoordinates(unsigned long long ElemCount)
 	{
 		NCords.XCords_Gen = (double *)calloc(ElemCount, sizeof(double)); 
 		NCords.YCords_Gen = (double *)calloc(ElemCount, sizeof(double));
-		for (unsigned long long i = 0; i <= ElemCount; i++)
+
+		for (i = 0; i < ElemCount; i++)
 		{
 			Max_X = (Max_X < Args.XComp[i]) ? Args.XComp[i] : Max_X;
-			NCords.YCords_Gen[i] = YRes / 2;
-			
+
 		}
 	}
 	else
@@ -166,25 +205,38 @@ void GenerateCoordinates(unsigned long long ElemCount)
 	
 	for (unsigned long long i = 0; i < ElemCount; i++)
 	{
-		NCords.XCords_Gen[i] = Args.XComp[i] * XRes / Max_X;
-		NCords.YCords_Gen[i] = ((Args.YComp[i] * (YRes-50)) / (Max_Y)) + 30; //adding 30 so that it starts above electron plate
-		printf("\nX = %lf\t Y = %lf", NCords.XCords_Gen[i], NCords.YCords_Gen[i]);
+		if (Args.YComp == 0)
+		{
+			NCords.XCords_Gen[i] = Args.XComp[i] * XRes / Max_X;
+			NCords.XCords_Gen[i] = YRes / 2;
+		}
+		else
+		{
+			NCords.XCords_Gen[i] = Args.XComp[i] * XRes / Max_X;
+			NCords.YCords_Gen[i] = ((Args.YComp[i] * (YRes - 50)) / (Max_Y)) + 30; //adding 30 so that it starts above electron plate
+			printf("\nX = %lf\t Y = %lf", NCords.XCords_Gen[i], NCords.YCords_Gen[i]);
+		}
 	}
 	
 }
 
-void PlotAssigner(double *XRawCords, double *YRawCords, double *MaxYCordRaw, int Identifier)
+void PlotAssigner(double *XRawCords, double *YRawCords, double *MaxYCordRaw, int Identifier,...) //parameter pack operator
 {
 	
 	unsigned long long Elems = _msize(XRawCords) / sizeof(XRawCords[0]);
 	DWORD ThreadID;
 	HANDLE DrawHandle;
+	va_list ListArgs;
+	va_start(ListArgs, Identifier);
 	
-
+	Args.MaxXCord = va_arg(ListArgs, double);
+	va_end(ListArgs);
+	
 	Args.XComp = XRawCords;
 	Args.YComp = YRawCords;
 	Args.MaxYCord = MaxYCordRaw;
 
+	
 	GenerateCoordinates(Elems);
 	switch (Identifier)
 	{

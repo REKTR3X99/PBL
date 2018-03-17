@@ -121,7 +121,7 @@ int main(int argc,char* argv[])
 
 
 	//Function calls for basic math
-	Basic_Calculations(*RequiredVariables->PotentialDifference, *RequiredVariables->PlateDistance);//passing values of velocity and platedistance
+	Basic_Calculations();//passing values of velocity and platedistance
 
 	Choice: //goto jumper label
 	printf("\n1: Parallel ElectricField\n2: Perpendicular Electric Field\n3: Projectile Electric Field");
