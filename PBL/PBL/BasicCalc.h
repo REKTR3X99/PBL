@@ -38,6 +38,7 @@ struct ElectricField {
 		double VerticalDisplacement_Y;
 		double HorizontalDisplacement_X;
 		double VerticalDisplacement_Leaving;
+		double AngularDisplacement;
 		const double ElectronPlateWidth_L;
 	}Perpendicular;
 
@@ -104,7 +105,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 		printf("\n%g", Force_Electron);
 		printf("\n%g", Acceleration_Electron);
 
-	}
+	}defining a sub section latex
 #pragma endregion
 
 
@@ -156,6 +157,9 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 			EField.Perpendicular.HorizontalDisplacement_X = EField.Var.InitialVelocity * Misc.count;
 			EField.Perpendicular.VerticalDisplacement_Y = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(Misc.count,2);
 			EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
+			
+			//in-corporate this into the co-ordinate system
+			EFiel.Perpendicular.AngularDisplacement = Energy_Electron/(2 * ELECTRON_MASS * EField.Var.InitialVelocity) * pow(EField.Perpendicular.HorizontalDisplacement_X,2);
 			
 			
 			EField.CompArray.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
