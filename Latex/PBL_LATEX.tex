@@ -1,6 +1,7 @@
 \documentclass[a4paper,20pt,twoside]{report}
 \usepackage[left = 0.5in, top = 0.5in,bottom = 0.5in]{geometry}
 \usepackage{titlesec}
+\usepackage{listings}
 \pagestyle{myheadings}
 
 \begin{document}
@@ -68,14 +69,14 @@
 		\textit{Basic\_Calculations} \textnormal{in }\textit{BasicCalc.h}
 		\vspace{2mm}
 		
-		\begin{verbatim}
+		\begin{lstlisting}[language = C]
 		void Basic_Calculations(double PotentialDifference, double PlateDistance)
 		{
 		Energy_Electron = PotentialDifference / PlateDistance;  //Energy of the electron
 		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force on electron at Plate B
 		Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS;  //Acceleration of Electron
 		}
-		\end{verbatim}
+		\end{lstlisting}
 		
 		
 		\subsection{Parallel to Electric Field}
@@ -107,7 +108,7 @@
 			
 			The calculation is done by the following code :
 			\vspace{10mm}
-			\begin{verbatim}
+			\begin{lstlisting}[language = C]
 		void ElectronMovement_Parallel(int Identifier)
 			{
 			float count = Misc.count = 0;
@@ -129,7 +130,7 @@
 			}
 		
 			}
-			\end{verbatim}
+		\end{lstlisting}
 	
 	\subsection{Perpendicular to Electric Field}
 	If \textbf{A} and \textbf{B} are two metal plates placed horizontally parallel to each other
@@ -176,6 +177,41 @@
 	\end{equation}
 	
 	
+	The code which processes the above information, is given in \textit{\textbf{BasicCalc.h}}
+	
+
+	
+	\lstset{breaklines = true}
+	\begin{lstlisting}[language = C]
+	void ElectronMovement_Perpendicular(float PlateWidth, int Identifier)
+	{		
+	Misc.count = 0;
+	Misc.index = 0;
+	
+	
+	EField.CompArray.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+	EField.CompArray.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+	
+	while (Misc.count <= EField.Var.TimeEpoch)
+	{
+	EField.Perpendicular.HorizontalDisplacement_X = EField.Var.InitialVelocity * Misc.count;
+	
+	EField.Perpendicular.VerticalDisplacement_Y = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(Misc.count,2);
+	
+	EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
+	
+	
+	EField.Perpendicular.AngularDisplacement = Energy_Electron/(2 * ELECTRON_MASS * EField.Var.InitialVelocity) * pow(EField.Perpendicular.HorizontalDisplacement_X,2);
+	
+	
+	EField.CompArray.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
+	EField.CompArray.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
+	Misc.index++;
+	Misc.count += EField.Var.StepSize;
+	
+	
+	}
+	\end{lstlisting}
 	
 	\subsection{Electron Projected at an angle}
 	Consider an electron projected at an angle $\theta_0$ to an electric field \textbf{E} 
