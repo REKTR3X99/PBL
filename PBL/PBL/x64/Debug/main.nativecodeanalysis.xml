@@ -1,2 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DEFECTS></DEFECTS>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILENAME>plotter.h</FILENAME>
+      <LINE>119</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>6293</DEFECTCODE>
+    <DESCRIPTION>Ill-defined for-loop:  counts down from minimum.</DESCRIPTION>
+    <FUNCTION>Draw_Projectile</FUNCTION>
+    <DECORATED>Draw_Projectile</DECORATED>
+    <FUNCLINE>104</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILENAME>plotter.h</FILENAME>
+      <LINE>127</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '108' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <FUNCTION>Draw_Projectile</FUNCTION>
+    <DECORATED>Draw_Projectile</DECORATED>
+    <FUNCLINE>104</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+        <FILENAME>plotter.h</FILENAME>
+        <LINE>108</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILENAME>plotter.h</FILENAME>
+      <LINE>203</LINE>
+      <COLUMN>26</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '184' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <FUNCTION>GenerateCoordinates</FUNCTION>
+    <DECORATED>GenerateCoordinates</DECORATED>
+    <FUNCLINE>180</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+        <FILENAME>plotter.h</FILENAME>
+        <LINE>184</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILENAME>plotter.h</FILENAME>
+      <LINE>211</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '184' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <FUNCTION>GenerateCoordinates</FUNCTION>
+    <DECORATED>GenerateCoordinates</DECORATED>
+    <FUNCLINE>180</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+        <FILENAME>plotter.h</FILENAME>
+        <LINE>184</LINE>
+        <COLUMN>20</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

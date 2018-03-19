@@ -9,7 +9,7 @@ main.c(105): warning C4244: '=': conversion from 'float' to 'unsigned int', poss
   Generating code
 f:\code\pbl_college\pbl\pbl\plotter.h(95): warning C4716: 'Draw_Perpendicular': must return a value
 f:\code\pbl_college\pbl\pbl\plotter.h(52): warning C4716: 
-  9 of 18 functions (50.0%) were compiled, the rest were copied from previous compilation.
+  8 of 18 functions (44.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

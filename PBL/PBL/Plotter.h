@@ -38,7 +38,7 @@ DWORD CALLBACK WINAPI Draw_Parallel(unsigned long long ElemCount)
 	while (!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
 	{
 		slSetForeColor(0, 1, 0, 1);
-		slCircleFill(NCords.XCords_Gen[i], NCords.YCords_Gen[i], 2.5, 128);
+		slCircleFill(NCords.XCords_Gen[i], YRes/2, 2.5, 128);
 		i++;
 		if (i == ElemCount)
 		{
@@ -49,6 +49,8 @@ DWORD CALLBACK WINAPI Draw_Parallel(unsigned long long ElemCount)
 	}
 
 	slClose();
+
+	return 0;
 }
 
 DWORD CALLBACK WINAPI Draw_Perpendicular(unsigned long long ElemCount)
@@ -92,6 +94,8 @@ DWORD CALLBACK WINAPI Draw_Perpendicular(unsigned long long ElemCount)
 	}
 
 	slClose();
+
+	return 0;
 }
 
 
@@ -104,13 +108,14 @@ DWORD CALLBACK WINAPI Draw_Projectile(unsigned long long ElemCount)
 	unsigned long long i = 0;
 	slSetFontSize(35);
 	//unsigned long long i = 0;
-	int j = 0;
+	unsigned long long int j = 0;
 	for ( i = 0; i <= ElemCount; i++)
 	{
 		if (Args.YComp[i] > *Args.MaxYCord)
 			break;
 	}
 
+	//Mirroring half of the parabola to save on performance
 	for (j = i; j <= ElemCount; j--)
 	{
 		{
@@ -209,6 +214,7 @@ void GenerateCoordinates(unsigned long long ElemCount)
 		{
 			NCords.XCords_Gen[i] = Args.XComp[i] * XRes / Max_X;
 			NCords.XCords_Gen[i] = YRes / 2;
+			printf("\nX = %lf\t Y = %lf", NCords.XCords_Gen[i], NCords.YCords_Gen[i]);
 		}
 		else
 		{
