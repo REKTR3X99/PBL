@@ -1,7 +1,17 @@
 \documentclass[a4paper,20pt,twoside]{report}
 \usepackage[left = 0.5in, top = 0.5in,bottom = 0.5in]{geometry}
 \usepackage{titlesec}
+\usepackage{listings}
 \pagestyle{myheadings}
+
+
+\lstset
+{
+	breaklines = true,
+	language = C,
+	%gobble = true
+}
+
 
 \begin{document}
 	\title{Simulating Motion Of Charged Particle/Electron Through an Electric and Magnetic Field}
@@ -60,7 +70,7 @@
 		
 		\textnormal{The acceleration is given by}
 		\begin{equation}
-		a = \frac{F}{m} = -\frac{eE}{-eE}{m}
+		a = \frac{F}{m} = -\frac{eE}{m}
 		\end{equation}
 		\vspace{10mm}
 		\textbf{The corresponding code in the project is given in:\\}
@@ -68,14 +78,14 @@
 		\textit{Basic\_Calculations} \textnormal{in }\textit{BasicCalc.h}
 		\vspace{2mm}
 		
-		\begin{verbatim}
-		void Basic_Calculations(double PotentialDifference, double PlateDistance)
-		{
-		Energy_Electron = PotentialDifference / PlateDistance;  //Energy of the electron
-		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force on electron at Plate B
-		Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS;  //Acceleration of Electron
-		}
-		\end{verbatim}
+		\begin{lstlisting}[basicstyle=\linespread{0}]
+	void Basic_Calculations(double PotentialDifference, double PlateDistance)
+	{
+	Energy_Electron = PotentialDifference / PlateDistance;  //Energy of the electron
+	Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force on electron at Plate B
+	Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS;  //Acceleration of Electron
+	}
+		\end{lstlisting}
 		
 		
 		\subsection{Parallel to Electric Field}
@@ -107,29 +117,32 @@
 			
 			The calculation is done by the following code :
 			\vspace{10mm}
-			\begin{verbatim}
-		void ElectronMovement_Parallel(int Identifier)
-			{
-			float count = Misc.count = 0;
-			int Index = Misc.index =0;
-			float Time = EField.Var.TimeEpoch;
-			float StepSize = EField.Var.StepSize;
-			unsigned int mem = Misc.MemAllocFactor;
 			
 			
-			EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
+\begin{lstlisting}[language = C][basicstyle=\linespreac{0}]
+
+	void ElectronMovement_Parallel(int Identifier)
+		{
+		float count = Misc.count = 0;
+		int Index = Misc.index =0;
+		float Time = EField.Var.TimeEpoch;
+		float StepSize = EField.Var.StepSize;
+		unsigned int mem = Misc.MemAllocFactor;
 		
-			while (count <= Time)
-			{
-			EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
-			
-			EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
-			count += StepSize;
-			Index++;
-			}
 		
-			}
-			\end{verbatim}
+		EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
+	
+		while (count <= Time)
+		{
+		EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
+		
+		EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
+		count += StepSize;
+		Index++;
+		}
+	
+		}
+\end{lstlisting}
 	
 	\subsection{Perpendicular to Electric Field}
 	If \textbf{A} and \textbf{B} are two metal plates placed horizontally parallel to each other
@@ -176,6 +189,41 @@
 	\end{equation}
 	
 	
+	The code which processes the above information, is given in \textit{\textbf{BasicCalc.h}}
+	
+
+	\vspace{10mm}
+	
+	\begin{lstlisting}[language = C]
+	void ElectronMovement_Perpendicular(float PlateWidth, int Identifier)
+	{		
+	Misc.count = 0;
+	Misc.index = 0;
+	
+	
+	EField.CompArray.Xcomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+	EField.CompArray.Ycomponent = (double *)calloc(Misc.MemAllocFactor, sizeof(double));
+	
+	while (Misc.count <= EField.Var.TimeEpoch)
+	{
+	EField.Perpendicular.HorizontalDisplacement_X = EField.Var.InitialVelocity * Misc.count;
+	
+	EField.Perpendicular.VerticalDisplacement_Y = -1 * (Force_Electron / 2 * ELECTRON_MASS) * pow(Misc.count,2);
+	
+	EField.Perpendicular.VerticalDisplacement_Leaving = (ELECTRON_ENERGY / 2 * ELECTRON_MASS) * Energy_Electron * (PlateWidth / pow(EField.Var.InitialVelocity, 2));
+	
+	
+	EField.Perpendicular.AngularDisplacement = Energy_Electron/(2 * ELECTRON_MASS * EField.Var.InitialVelocity) * pow(EField.Perpendicular.HorizontalDisplacement_X,2);
+	
+	
+	EField.CompArray.Xcomponent[Misc.index] = EField.Perpendicular.HorizontalDisplacement_X;
+	EField.CompArray.Ycomponent[Misc.index] = EField.Perpendicular.VerticalDisplacement_Y;
+	Misc.index++;
+	Misc.count += EField.Var.StepSize;
+	
+	
+	}
+	\end{lstlisting}
 	
 	\subsection{Electron Projected at an angle}
 	Consider an electron projected at an angle $\theta_0$ to an electric field \textbf{E} 
@@ -216,6 +264,141 @@
 	H = \frac{{V_0}^2sin^2\theta_0}{2a}
 	\end{equation}
 	
- 	\end{document}
+	The time taken by the electron to achieve maximum displacement \textbf{t}
+	is given by
+	\begin{equation}
+	t = \frac{v_0sin\theta_0}{a}
+	\end{equation}
+	
+	The time of flight \textbf{T} gives the time taken by the electron
+	to reach its final height
+	
+	\begin{equation}
+	T = 2t = \frac{2V_0sin\theta_0}{a}
+	\end{equation}
+	
+	
+	The range \textbf{R} is gives the maximum horizontal displacement 
+	
+	\begin{equation}
+	R = V_0 cos \theta_0\frac{2V_0(sin\theta_0)}{a}\\
+	= \frac{\left(2sin\theta_0cos\theta_0\right){V_0}^2}{a}
+	\end{equation}
+	
+	\begin{eqnarray}
+	R = \frac{{V_0}^2 sin2\theta_0}{a}
+	\end{eqnarray}
+	
+	\section{Motion Of an Electron inside a Magnetic Field}
+	
+	When a charge \textbf{q} enters a magnetic field at an angle \textbf{$\theta$} to the field intensity,
+	it is acted upon by a magnetic force.
+	
+	\begin{equation}
+	\vec{F} = \vec{qv} \times \vec{B}
+	\end{equation}
+	
+	If an electron moves in an uniform magnetci field makin an angle $\theta$ to the field intensity, it is acted upon by magnetci force given by : 
+	
+	\begin{equation}
+	\vec{F} = \vec{ev} \times \vec{B}
+	\end{equation}
+	If the velocity \textbf{v} and the intensity \textbf{B} are perpendicular to each other the magnetic
+	force is given by 
+	
+	\begin{equation}
+	F = evB
+	\end{equation}
+	
+	Since the magntic force is always perpendicular on the velocity of the electron, the work done by the force on the electron is zero.
+	
+	Thus, the magnetic field does not affect the velocity or kinetic energy of the electron.This can be proved mathematically as : 
+	
+	\begin{equation}
+	\vec{F} \cdot \vec{v} = 0 
+	\end{equation}
+	
+	\begin{equation}
+	m\vec{a} \cdot  \vec{v} = 0
+	\end{equation}
+	
+	\begin{equation}
+	m\frac{d\vec{v}}{dt} \cdot \vec{v} = 0
+	\end{equation}
+	
+	\begin{equation}
+	m\frac{d}{dt}\left(v^2\right) = 0 
+	\end{equation}
+	
+	\begin{equation}
+	\frac{d}{dt}\left(\frac{1}{2}mv^2\right) = 0
+	\end{equation}
+	
+	\begin{equation}
+	K.E = \frac{1}{2}mv^2 = constant
+	\end{equation}
+	
+	Hence,\textbf{\textit{a magnetic field can change only the direction of the electron motion but not the magnitude of its velocity}}
+	
+	\subsection{Motion of an Electron in a Longitudinal Magnetic Field}
+	
+	When an electron enters an uniform magnetic field parallel to the field lines or anti-parallel to the field lines, the magnetic force acting on the electron is : 
+	
+	\begin{equation}
+	F = ev\hspace{1mm}sin\theta = 0
+	\end{equation}
+	
+	Hence, \textbf{\textit{the electron moves through the longitudinal magnetic field with unaffected velocity and energy}}
+	
+	\vspace{10mm}
+	\subsection{Motion of an Electron in a Transverse Magnetic Field}
+	
+	Consider a magnetic field acting into the page. An electron enters the magnetic field of intensity \textbf{B} perpendicularly, Since the velocity and the field are perpendicular to each other the electron experiences a magnetic force 
+	
+	\begin{equation}
+	F = evB
+	\end{equation}
+	
+	\vspace{4mm}
+	As the force changes the direction of v and F continously, the electron gets deflected and follows a curved path. The velocity, \textbf{v} of the electron is always tangential to the curved path and the force being perpendicular to the velocity is obviously a centripetal force whic his given by 
+	
+	\begin{equation}
+	F_c = \frac{mv^2}{R}
+	\end{equation}
+	\vspace{4mm}
+	
+	where \textbf{m} is the mass of the electron and \textbf{R} is the radius of the curved path.
+	
+	If the centripetal force balances the magnetic force the electron continues to follow a circular path of radius R. So, from equation \textbf{34} and equation \textbf{35} it can be written as 
+	
+	\begin{equation}
+	evB = \frac{mv^2}{R}
+	\end{equation}
+	
+	\begin{eqnarray}
+	R = \frac{mv}{eB}
+	\end{eqnarray}
+	
+	\vspace{4mm}
+	
+	The time period, \textbf{T} of the circular path is the time taken by the electron to complete one revolution. Hence, 
+	
+	\begin{equation}
+	T = \frac{2 \pi R}{v} = \frac{2\pi}{v} \cdot \frac{mv}{eB}
+	\end{equation}
+	
 
+	\begin{equation}
+	T = \frac{2\pi m}{eB}
+	\end{equation}
+
+	\vspace{4mm}
+	
+	The frequency of revolution of the orbit is 
+	
+	\begin{equation}
+	f = \frac{1}{T} =\frac{eB}{2 \pi m}
+	\end{equation}
+	
+  	\end{document}
 
