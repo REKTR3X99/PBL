@@ -219,3 +219,15 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 	
 	}
 
+	void Electron_MAG_Transverse()
+	{
+
+	}
+
+	void Electron_MAG_Longitudinal()
+	{
+
+	}
+
+
+

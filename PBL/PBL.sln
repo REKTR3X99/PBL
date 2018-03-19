@@ -10,26 +10,32 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Debug|x64.ActiveCfg = Debug|x64
 		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Debug|x64.Build.0 = Debug|x64
+		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Debug|x86.ActiveCfg = Debug|Win32
+		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Debug|x86.Build.0 = Debug|Win32
+		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Debug|x86.Deploy.0 = Debug|Win32
 		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Release|x64.ActiveCfg = Release|x64
 		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Release|x64.Build.0 = Release|x64
+		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Release|x86.ActiveCfg = Release|Win32
+		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Release|x86.Build.0 = Release|Win32
+		{05ECAD7B-8951-46EA-A01F-558B0BECFAF4}.Release|x86.Deploy.0 = Release|Win32
 		{99EC0294-ED46-43BA-9603-70D4375BAF36}.Debug|x64.ActiveCfg = Debug
+		{99EC0294-ED46-43BA-9603-70D4375BAF36}.Debug|x86.ActiveCfg = Debug
+		{99EC0294-ED46-43BA-9603-70D4375BAF36}.Debug|x86.Build.0 = Debug
 		{99EC0294-ED46-43BA-9603-70D4375BAF36}.Release|x64.ActiveCfg = Release
+		{99EC0294-ED46-43BA-9603-70D4375BAF36}.Release|x86.ActiveCfg = Release
+		{99EC0294-ED46-43BA-9603-70D4375BAF36}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C9AD407-9E4C-4E76-BE4D-C0E892CFC96C}
-	EndGlobalSection
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 EndGlobal
