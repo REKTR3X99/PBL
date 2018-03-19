@@ -219,3 +219,16 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 	
 	}
 
+	void ElectronMovement_MAG_Transverse(int Identifier)
+	{
+		double *Radius;
+		*Radius = (double)calloc(1,sizeof(double));
+
+		*R = ELECTRON_MASS * EField.Var.InitialVelocity; / ELECTRON_ENERGY * FieldIntensity;
+	}
+
+	void ElectronMovement_MAG_Longitudinal(int Identifier)
+	{
+
+	}
+

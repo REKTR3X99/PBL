@@ -4,6 +4,15 @@
 \usepackage{listings}
 \pagestyle{myheadings}
 
+
+\lstset
+{
+	breaklines = true,
+	language = C,
+	%gobble = true
+}
+
+
 \begin{document}
 	\title{Simulating Motion Of Charged Particle/Electron Through an Electric and Magnetic Field}
 	\maketitle
@@ -69,13 +78,13 @@
 		\textit{Basic\_Calculations} \textnormal{in }\textit{BasicCalc.h}
 		\vspace{2mm}
 		
-		\begin{lstlisting}[language = C]
-		void Basic_Calculations(double PotentialDifference, double PlateDistance)
-		{
-		Energy_Electron = PotentialDifference / PlateDistance;  //Energy of the electron
-		Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force on electron at Plate B
-		Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS;  //Acceleration of Electron
-		}
+		\begin{lstlisting}[basicstyle=\linespread{0}]
+	void Basic_Calculations(double PotentialDifference, double PlateDistance)
+	{
+	Energy_Electron = PotentialDifference / PlateDistance;  //Energy of the electron
+	Force_Electron = -1 * ELECTRON_ENERGY * Energy_Electron; //Force on electron at Plate B
+	Acceleration_Electron = fabs(Force_Electron) / ELECTRON_MASS;  //Acceleration of Electron
+	}
 		\end{lstlisting}
 		
 		
@@ -108,29 +117,32 @@
 			
 			The calculation is done by the following code :
 			\vspace{10mm}
-			\begin{lstlisting}[language = C]
-		void ElectronMovement_Parallel(int Identifier)
-			{
-			float count = Misc.count = 0;
-			int Index = Misc.index =0;
-			float Time = EField.Var.TimeEpoch;
-			float StepSize = EField.Var.StepSize;
-			unsigned int mem = Misc.MemAllocFactor;
 			
 			
-			EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
+\begin{lstlisting}[language = C][basicstyle=\linespreac{0}]
+
+	void ElectronMovement_Parallel(int Identifier)
+		{
+		float count = Misc.count = 0;
+		int Index = Misc.index =0;
+		float Time = EField.Var.TimeEpoch;
+		float StepSize = EField.Var.StepSize;
+		unsigned int mem = Misc.MemAllocFactor;
 		
-			while (count <= Time)
-			{
-			EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
-			
-			EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
-			count += StepSize;
-			Index++;
-			}
 		
-			}
-		\end{lstlisting}
+		EField.CompArray.Xcomponent = (double *)calloc(mem, sizeof(double));
+	
+		while (count <= Time)
+		{
+		EField.Parallel.X_Component = fabs(Force_Electron) / (2 * ELECTRON_MASS) * pow(count, 2);
+		
+		EField.CompArray.Xcomponent[Index] = EField.Parallel.X_Component;
+		count += StepSize;
+		Index++;
+		}
+	
+		}
+\end{lstlisting}
 	
 	\subsection{Perpendicular to Electric Field}
 	If \textbf{A} and \textbf{B} are two metal plates placed horizontally parallel to each other
@@ -180,8 +192,8 @@
 	The code which processes the above information, is given in \textit{\textbf{BasicCalc.h}}
 	
 
+	\vspace{10mm}
 	
-	\lstset{breaklines = true}
 	\begin{lstlisting}[language = C]
 	void ElectronMovement_Perpendicular(float PlateWidth, int Identifier)
 	{		
@@ -298,7 +310,37 @@
 	F = evB
 	\end{equation}
 	
+	Since the magntic force is always perpendicular on the velocity of the electron, the work done by the force on the electron is zero.
+	
+	Thus, the magnetic field does not affect the velocity or kinetic energy of the electron.This can be proved mathematically as : 
+	
+	\begin{equation}
+	\vec{F} \cdot \vec{v} = 0 
+	\end{equation}
+	
+	\begin{equation}
+	m\vec{a} \cdot  \vec{v} = 0
+	\end{equation}
+	
+	\begin{equation}
+	m\frac{d\vec{v}}{dt} \cdot \vec{v} = 0
+	\end{equation}
+	
+	\begin{equation}
+	m\frac{d}{dt}\left(v^2\right) = 0 
+	\end{equation}
+	
+	\begin{equation}
+	\frac{d}{dt}\left(\frac{1}{2}mv^2\right) = 0
+	\end{equation}
+	
+	\begin{equation}
+	K.E = \frac{1}{2}mv^2 = constant
+	\end{equation}
+	
+	Hence,\textbf{\textit{a magnetic field can change only the direction of the electron motion but not the magnitude of its velocity}}
+	
+	\subsection{Motion of an Electron in a Longitudinal Magnetic Field}
 	
   	\end{document}
-
 
