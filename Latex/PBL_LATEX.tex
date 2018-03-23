@@ -240,6 +240,20 @@
 		V_{Y0} = V_0 cos\theta_0
 		\end{equation}
 	
+	\textbf{CODE : }
+	
+	\begin{lstlisting}
+		
+		//Allocating memeorya
+		double *Vx0 = (double *)malloc(sizeof(double));
+		double *Vy0 = (double *)malloc(sizeof(double));
+		
+		//Calculating and assigning values
+		*Vx0 = EField.Var.InitialVelocity * cos(ProjectionAngle_Electron);
+		*Vy0 = EField.Var.InitialVelocity * sin(ProjectionAngle_Electron);
+	\end{lstlisting}
+	
+	\vspace{10mm}
 	
 	When the electron is pushed or is projected into the this field, the electron experiences 
 	a force \textbf{f} which is directed to the positively charged plate. This causes the electron
@@ -256,6 +270,27 @@
 	\begin{equation}
 	y  =  V_{y0}  + \frac{1}{2}at^2 = (V_0 sin\theta_0)t + \frac{1}{2}at^2
 	\end{equation}
+	
+	\textbf{CODE :}
+	\begin{lstlisting}
+	
+		//Iterate for "count" number of seconds till it reaches TimeEpoch.
+		while (Misc.count <= EField.Var.TimeEpoch)
+		{
+		
+		//Calculating for Horizontal and Vertical Componenets
+		EField.Projection.HorizontalComponent_X = *Vx0 * Misc.count;
+		EField.Projection.VerticalComponent_Y = *Vy0 + (0.5 * Acceleration_Electron * pow(Misc.count, 2));
+		
+		
+		EField.CompArray.Xcomponent[Misc.index] = fabs(EField.Projection.HorizontalComponent_X); //XComponent Calculation
+		EField.CompArray.Ycomponent[Misc.index] = fabs(EField.Projection.VerticalComponent_Y); //YComponent Calculation
+		Misc.index++; //Incrementing Index for the array
+		Misc.count += EField.Var.StepSize; //Incrementing the time based on Step-Size
+		}
+	\end{lstlisting}
+	
+	\vspace{10mm}
 	
 	
 	The maximum vertical displacement denoted by \textbf{H} of the electron can be calculated by 
@@ -402,3 +437,4 @@
 	
   	\end{document}
 
+\grid
