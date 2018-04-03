@@ -39,19 +39,19 @@
     <SFA>
       <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>203</LINE>
+      <LINE>222</LINE>
       <COLUMN>26</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '184' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '203' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
     <FUNCTION>GenerateCoordinates</FUNCTION>
     <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>180</FUNCLINE>
+    <FUNCLINE>199</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>184</LINE>
+        <LINE>203</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
     </PATH>
@@ -60,19 +60,19 @@
     <SFA>
       <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>211</LINE>
+      <LINE>230</LINE>
       <COLUMN>25</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '184' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '203' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
     <FUNCTION>GenerateCoordinates</FUNCTION>
     <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>180</FUNCLINE>
+    <FUNCLINE>199</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>184</LINE>
+        <LINE>203</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
     </PATH>

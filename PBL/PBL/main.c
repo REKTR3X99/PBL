@@ -132,23 +132,27 @@ int main(int argc,char* argv[])
 	switch (choice)
 	{
 	case 1 :
-		FieldType = Parallel_Electric;
-		ElectronMovement_Parallel(FieldType);
+		//FieldType = Parallel_Electric;
+		ElectronMovement_Parallel(Parallel_Electric);
 		break;
 	case 2 : 
-		FieldType = Perpendicular_Electric;
+		//FieldType = Perpendicular_Electric;
 		printf("\nEnter Plate Width");
 		scanf("%f", RequiredVariables->PlateWidth);
-		ElectronMovement_Perpendicular(*RequiredVariables->PlateWidth,FieldType);
+		ElectronMovement_Perpendicular(*RequiredVariables->PlateWidth,Perpendicular_Electric);
 		break;
 
 	case 3 : 
-		FieldType = Projectile_Electric;
+		//FieldType = Projectile_Electric;
 		printf("\nEnter Projection Angle");
 		scanf("%f", RequiredVariables->ProjectionAngle);
 
 		ElectronMovement_Projectile(*RequiredVariables->ProjectionAngle, Projectile_Electric);
 		break;
+	case 4:
+		Electron_MAG_Longitudinal(Longitudinal_Magnetic);
+		break;
+
 
 	default : 
 		printf("\nThe value entered doesn't match with any of the option, please try again");
