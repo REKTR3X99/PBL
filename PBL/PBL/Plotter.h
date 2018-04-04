@@ -301,6 +301,7 @@ void PlotAssigner(double *XRawCords, double *YRawCords, double *MaxYCordRaw, int
 		break;
 
 	case 4:
+	DrawHandle = CreateThread(NULL, 0, Draw_Longitudinal, NULL, 0, 0, &ThreadID);
 		break;
 		
 	}
