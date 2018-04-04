@@ -195,6 +195,20 @@ DWORD CALLBACK WINAPI Draw_Transverse()
 	slClose();
 }
 
+DWORD CALLBACK WINAPI Draw_Longitudinal()
+{
+	slWindow(XRES,YREs,"Plot", 0);
+	
+	while(!slShouldClose() && !slGetKey(SL_KEY_ESCAPE))
+	{
+		slSetForeColor(0,0.2,0.8,1);
+		slCircleOutLine(XRES/2, YRES/2, 5,  128);
+		slRender();
+	}
+
+	slClose();
+}
+
 void GenerateCoordinates(unsigned long long ElemCount)
 {
 	double Max_X = Args.XComp[0];

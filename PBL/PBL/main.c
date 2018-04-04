@@ -104,7 +104,7 @@ int main(int argc,char* argv[])
 	//if yes -> program exits
 	*RequiredVariables->MemAllocFactor = *RequiredVariables->Time_Seconds / *RequiredVariables->StepSize;
 
-	if (*RequiredVariables->MemAllocFactor * sizeof(double) > GetAvailableMemory() * 0.8)
+	if (*RequiredVariables->MemAllocFactor * sizeof(double) > GetAvailableMemory() * 0.90f)
 	{
 		printf("\nSorry but the value you entered exceeds over 80%% of the available memory.");
 		printf("\nThe program will now exit");		  
