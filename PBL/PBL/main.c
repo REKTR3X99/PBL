@@ -82,23 +82,29 @@ int main(int argc,char* argv[])
 	printf("\nEnter the values in their standard units");
 
 
-	printf("\nEnter the Potential Difference between the plates");
+	printf("\nEnter the Potential Difference between the plates = ");
 	scanf("%lf",RequiredVariables->PotentialDifference); // In volts 
 
-	printf("\nEnter the distance between the plate distance");
+	printf("\nEnter the distance between the plate distance = ");
 	scanf("%lf",RequiredVariables->PlateDistance); // In meters
 	
-	printf("\nEnter the Initial Velocity of the electron");
+	printf("\nEnter the Initial Velocity of the electron = ");
 	scanf("%lf", RequiredVariables->InitialVelocity);
 
-	printf("\nEnter the time you want to simulate for");
+	printf("\nEnter the time you want to simulate for = ");
 	scanf("%f",RequiredVariables->Time_Seconds);
 
-	printf("\nEnter the step size");
+	printf("\nEnter the step size = ");
 	scanf("%f", RequiredVariables->StepSize); // stupid issue of not seeing that it was using **float has been resolved
 #pragma endregion
 
+	if (*RequiredVariables->StepSize > *RequiredVariables->Time_Seconds)
+	{
+		printf("\nEntered step size is larger than time for simulation");
+		printf("\nEnter the stepsize and Time seconds again");
+		scanf("%d%d", RequiredVariables->StepSize, RequiredVariables->Time_Seconds);
 
+	}
 
 	//Checking if the the memory to be allocated is greater than the available memory 
 	//if yes -> program exits
@@ -124,7 +130,7 @@ int main(int argc,char* argv[])
 	Basic_Calculations();//passing values of velocity and platedistance
 
 	Choice: //goto jumper label
-	printf("\n1: Parallel ElectricField\n2: Perpendicular Electric Field\n3: Projectile Electric Field");
+	printf("\n1: Parallel ElectricField\n2: Perpendicular Electric Field\n3: Projectile Electric Field\n4: Transverse Magnetic Field");
 	scanf("%d", &choice);
 
 
@@ -144,27 +150,27 @@ int main(int argc,char* argv[])
 
 	case 3 : 
 		//FieldType = Projectile_Electric;
-		printf("\nEnter Projection Angle");
+		printf("\nEnter Projection Angle = ");
 		scanf("%f", RequiredVariables->ProjectionAngle);
 
 		ElectronMovement_Projectile(*RequiredVariables->ProjectionAngle, Projectile_Electric);
 		break;
 	case 4:
+		Electron_MAG_Transverse(Transverse_Magnetic);
+		break;
+		
+	case 5: 
 		Electron_MAG_Longitudinal(Longitudinal_Magnetic);
 		break;
 
-
 	default : 
 		printf("\nThe value entered doesn't match with any of the option, please try again");
-		choice = 0;
-		goto Choice; //Jump back to choice if the user inputs wrong values
+		choice=0;
+	 goto Choice; //Jump back to choice if the user enters wrong valu
 		break;
 	}
 
-
-	
 	system("pause");
-
 
 	return EXIT_SUCCESS;
 }

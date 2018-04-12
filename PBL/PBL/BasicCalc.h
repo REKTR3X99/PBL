@@ -221,7 +221,7 @@ void Assigner(double *PotentialDifference_P, double *InitialVelocity_P, double *
 
 	void Electron_MAG_Transverse(int Identifier)
 	{
-
+		PlotAssigner(1, 1, NULL, Identifier);
 	}
 
 	void Electron_MAG_Longitudinal(int Identifier)

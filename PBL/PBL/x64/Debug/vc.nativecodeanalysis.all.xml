@@ -1,73 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
     <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILEPATH>c:\users\ajay nair\desktop\pbl\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>119</LINE>
+      <LINE>124</LINE>
       <COLUMN>1</COLUMN>
     </SFA>
     <DEFECTCODE>6293</DEFECTCODE>
     <DESCRIPTION>Ill-defined for-loop:  counts down from minimum.</DESCRIPTION>
     <FUNCTION>Draw_Projectile</FUNCTION>
     <DECORATED>Draw_Projectile</DECORATED>
-    <FUNCLINE>104</FUNCLINE>
+    <FUNCLINE>109</FUNCLINE>
     <PATH></PATH>
   </DEFECT><DEFECT>
     <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILEPATH>c:\users\ajay nair\desktop\pbl\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>127</LINE>
+      <LINE>132</LINE>
       <COLUMN>25</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '108' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '113' of 'c:\users\ajay nair\desktop\pbl\pbl\pbl\plotter.h'.</DESCRIPTION>
     <FUNCTION>Draw_Projectile</FUNCTION>
     <DECORATED>Draw_Projectile</DECORATED>
-    <FUNCLINE>104</FUNCLINE>
+    <FUNCLINE>109</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+        <FILEPATH>c:\users\ajay nair\desktop\pbl\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>108</LINE>
+        <LINE>113</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
     </PATH>
   </DEFECT><DEFECT>
     <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+      <FILEPATH>c:\users\ajay nair\desktop\pbl\pbl\pbl\</FILEPATH>
       <FILENAME>plotter.h</FILENAME>
-      <LINE>222</LINE>
-      <COLUMN>26</COLUMN>
-    </SFA>
-    <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '203' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
-    <FUNCTION>GenerateCoordinates</FUNCTION>
-    <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>199</FUNCLINE>
-    <PATH>
-      <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-        <FILENAME>plotter.h</FILENAME>
-        <LINE>203</LINE>
-        <COLUMN>20</COLUMN>
-      </SFA>
-    </PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
-      <FILENAME>plotter.h</FILENAME>
-      <LINE>230</LINE>
+      <LINE>264</LINE>
       <COLUMN>25</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '203' of 'f:\code\pbl_college\pbl\pbl\plotter.h'.</DESCRIPTION>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '236' of 'c:\users\ajay nair\desktop\pbl\pbl\pbl\plotter.h'.</DESCRIPTION>
     <FUNCTION>GenerateCoordinates</FUNCTION>
     <DECORATED>GenerateCoordinates</DECORATED>
-    <FUNCLINE>199</FUNCLINE>
+    <FUNCLINE>232</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>f:\code\pbl_college\pbl\pbl\</FILEPATH>
+        <FILEPATH>c:\users\ajay nair\desktop\pbl\pbl\pbl\</FILEPATH>
         <FILENAME>plotter.h</FILENAME>
-        <LINE>203</LINE>
+        <LINE>236</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
     </PATH>
